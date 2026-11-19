@@ -79,7 +79,7 @@ COGEP = [
      ["PAGO DE LA DEUDA", "PAGO PREVIO", "ART. 361"]),
     # Archivo sin motivo en el nombre (11337-2024-00002, 12312-2019-00097). Al
     # final: un motivo con nombre propio gana, y una sentencia también (va antes).
-    ("Archivo del proceso.", ["ARCHIVO DEL PROCESO"], []),
+    ("Archivo del proceso.", ["ARCHIVO DEL PROCESO", "ARCHIVO DE LA CAUSA"], []),
     ("Con sentencia.", ["SENTENCIA (RESOLUCION)"], []),
 ]
 
@@ -138,7 +138,17 @@ def _es_sentencia_explicita(tipo: str) -> bool:
     t = " ".join(_norm(tipo).split())
     if not t.endswith("(RESOLUCION)") or _es_razon_notificacion(tipo):
         return False
-    return "SENTENCIA" in t or (t in TIPOS_SENTENCIA_EXACTOS and t != "(RESOLUCION)")
+    return ("SENTENCIA" in t or (t in TIPOS_SENTENCIA_EXACTOS and t != "(RESOLUCION)")
+            or _es_resolucion_de_la_materia(t))
+
+
+def _es_resolucion_de_la_materia(t: str) -> bool:
+    """Resoluciones de fondo que la materia nombra sin la palabra "SENTENCIA".
+    Garantías constitucionales: "NEGAR ACCIÓN (RESOLUCION)", "ACEPTAR ACCIÓN
+    (RESOLUCION)" (01283-2019-08625 y otras quedaban "en trámite").
+    `t` ya viene normalizado (mayúsculas, sin tildes, espacios simples)."""
+    palabras = getattr(MATERIA, "PALABRAS_RESOLUCION_DE_FONDO", ())
+    return t.endswith("(RESOLUCION)") and any(p in t for p in palabras)
 
 
 # Actuaciones que nunca cierran una causa, digan lo que digan:
@@ -169,7 +179,7 @@ def clasificar_cogep(tipo: str, actividad: str) -> str:
         return ""
     if "SENTENCIA" in t and t.endswith("(RESOLUCION)"):
         return "Con sentencia."
-    if t in TIPOS_SENTENCIA_EXACTOS:
+    if t in TIPOS_SENTENCIA_EXACTOS or _es_resolucion_de_la_materia(t):
         return "Con sentencia."
 
     # El texto libre solo cuenta en una RESOLUCION. En actas, oficios y autos

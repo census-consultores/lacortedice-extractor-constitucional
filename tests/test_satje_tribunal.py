@@ -350,3 +350,12 @@ def test_archivo_tras_excepcion_de_incompetencia():
     res, _, _ = _buscar({"17230": _acts(("ARCHIVO DEL PROCESO (AUTO INTERLOCUTORIO)", "2023-08-23", ""),
                                         ("EXCEPCION POR INCOMPETENCIA DEL JUZGADOR (AUTO INTERLOCUTORIO)", "2023-07-13", ""))}, "17230")
     assert "incompetencia" in res
+
+
+def test_garantias_negar_y_aceptar_accion_son_sentencia():
+    from resolucion.satje.tribunal import clasificar_cogep, _es_sentencia_explicita
+    assert clasificar_cogep("NEGAR ACCIÓN (RESOLUCION) ", "") == "Con sentencia."
+    assert clasificar_cogep("ACEPTAR ACCIÓN (RESOLUCION)", "") == "Con sentencia."
+    assert _es_sentencia_explicita("NEGAR ACCIÓN (RESOLUCION)")
+    assert not _es_sentencia_explicita("NEGAR ACCIÓN (RAZON DE NOTIFICACION)")
+    assert clasificar_cogep("ARCHIVO DE LA CAUSA (AUTO RESOLUTIVO)", "") == "Archivo del proceso."
