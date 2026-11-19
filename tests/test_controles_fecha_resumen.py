@@ -14,3 +14,16 @@ def test_resumen_largo_se_recorta_lo_posible():
     texto = "Primer párrafo del caso entre Juan y Pedro.\n\n" + largo + "\n\nLa Sala confirma la sentencia."
     out = C.recortar_palabras(texto, 350)
     assert C._contar(out) <= 350 and out.endswith("confirma la sentencia.")
+
+
+def test_sin_linea_cortada():
+    from resolucion.ai._cliente import sin_linea_cortada
+    assert sin_linea_cortada("• Primera completa.\n• La antigua máxima Pas de nullité sans grief recuerda que las nulidades no tienen por finalidad satisfacer pr") == "• Primera completa."
+    assert sin_linea_cortada("• Completa.\n• Otra completa.") == "• Completa.\n• Otra completa."
+
+
+def test_voto_no_se_corta_por_firmado_en_minusculas():
+    from resolucion.ai import controles as C
+    voto = ("VOTO SALVADO DE: JUEZ X\nAntecedentes: el contrato fue firmado por las partes contratantes. " +
+            "Relleno. " * 50 + "DECISIÓN: se confirma la sentencia.\nFirmado por JUEZ X")
+    assert C.extracto_voto(voto, 2000).endswith("se confirma la sentencia.")

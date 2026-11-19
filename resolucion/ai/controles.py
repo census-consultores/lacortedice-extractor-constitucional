@@ -83,7 +83,9 @@ def separar_voto(texto: str) -> tuple:
     return texto[:inicio].rstrip(), {"votos": votos, "texto": texto[inicio:]}
 
 
-_RE_FIRMA = re.compile(r"\bFirmado\s+(?:electr[oó]nicamente\s+)?por\b|\bC=EC\b", re.I)
+# Sin re.I: "firmado por las partes contratantes" dentro del voto lo cortaba a la
+# mitad (puerta v7, 17230-2021-21857: el extracto salía de los antecedentes).
+_RE_FIRMA = re.compile(r"\b(?:Firmado|FIRMADO)\s+(?:[Ee]lectr[oó]nicamente\s+|ELECTR[OÓ]NICAMENTE\s+)?(?:por|POR)\b|\bC=EC\b")
 # Inicio de oración: punto final y mayúscula ("fs. 169" o "dispone: “…" no lo son).
 _RE_INICIO_ORACION = re.compile(r"[.!?]\s+(?=[A-ZÁÉÍÓÚÑ¿¡])")
 # Número de página suelto ("3", "Página 3 de 10", "3/10").

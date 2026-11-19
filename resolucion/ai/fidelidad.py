@@ -89,6 +89,22 @@ def verificar(texto: str, sentencia: str, campo: str) -> tuple:
     return texto, senales
 
 
+_RE_VINETA_VACIA = re.compile(r"^\s*(?:[•●▪◦\-–*]|\d+[.)])?\s*[\s,;:.…]*$")
+
+
+def sin_avisos(texto: str) -> str:
+    """Quita AVISO_CITA del texto que ve el usuario (puerta v7: 18 marcas a la
+    vista) y las viñetas que quedan vacías. La señal queda en la puerta."""
+    salida = []
+    for linea in texto.split("\n"):
+        if AVISO_CITA in linea:
+            linea = re.sub(r"\s*" + re.escape(AVISO_CITA), "", linea)
+            if _RE_VINETA_VACIA.match(linea):
+                continue
+        salida.append(linea)
+    return "\n".join(salida)
+
+
 def aplicar(resultado: dict, sentencia: str, ajustes: list, senales: list) -> None:
     """Verifica en el sitio resumen, extracción y jurisprudencia de `resultado`."""
     if not ACTIVA:
@@ -96,6 +112,6 @@ def aplicar(resultado: dict, sentencia: str, ajustes: list, senales: list) -> No
     for campo in ("resumen", "extraccion", "jurisprudencia"):
         nuevo, s = verificar(resultado.get(campo) or "", sentencia, campo)
         if s:
-            resultado[campo] = nuevo
+            resultado[campo] = sin_avisos(nuevo)
             senales.extend(s)
             ajustes.append(f"Fidelidad: {len(s)} dato(s) no verificables en {campo}")

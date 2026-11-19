@@ -11,7 +11,9 @@ parte. La verificación solo QUITA viñetas; nunca escribe contenido.
 import json
 import re
 
-SECCIONES = {9: "Argumentos del Recurrente", 10: "Argumentos de la Contraparte"}
+# Puerta v7: la sección 8 (agravios) también traía alegaciones que el recurrente no hizo.
+SECCIONES = {8: "Causales o agravios invocados por el recurrente", 9: "Argumentos del Recurrente",
+             10: "Argumentos de la Contraparte"}
 _RE_VINETA = re.compile(r"^\s*(?:[•●▪◦\-–*]|\d+[.)])\s+")
 NO_CONSTA = "No consta en la sentencia."
 

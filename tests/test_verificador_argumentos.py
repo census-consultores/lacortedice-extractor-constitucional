@@ -8,7 +8,8 @@ EXT = ("8. Causales o agravios invocados\n• Falta de motivación\n\n"
 
 def test_vinetas_y_prompt():
     v = V.vinetas(EXT)
-    assert v == {9: ["• Alega que no se valoró la prueba.", "• El Tribunal considera que la letra es exigible."],
+    assert v == {8: ["• Falta de motivación"],
+                 9: ["• Alega que no se valoró la prueba.", "• El Tribunal considera que la letra es exigible."],
                  10: ["• Los testigos declararon que vivía allí."]}
     assert "[9.2] (Argumentos del Recurrente) El Tribunal considera" in V.prompt(v)
 

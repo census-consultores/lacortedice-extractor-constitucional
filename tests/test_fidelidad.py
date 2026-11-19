@@ -43,3 +43,11 @@ def test_referencia_bibliografica_y_comillas_rectas():
 def test_numero_de_juicio_con_otro_formato_no_se_marca():
     _, s = f.verificar("Juicio 17230-2019-07246.", "Proceso No. 17230 2019 07246 …", "extraccion")
     assert s == []
+
+
+def test_aplicar_no_deja_avisos_a_la_vista():
+    r = {"extraccion": "• “El demandado actuó con mala fe al ocupar el predio ajeno”\n• Otro dato real."}
+    aj, se = [], []
+    f.aplicar(r, "El demandado ocupó el predio. Otro dato real.", aj, se)
+    assert f.AVISO_CITA not in r["extraccion"] and "Otro dato real." in r["extraccion"]
+    assert r["extraccion"].count("•") == 1 and se

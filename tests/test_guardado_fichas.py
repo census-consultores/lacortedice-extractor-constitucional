@@ -321,12 +321,17 @@ def test_reintento_truncado_prefiere_menos_repeticion():
 
 
 def test_corte_todos_truncados_conserva_el_de_menos_repeticion(monkeypatch):
-    limpia = "1. Instancia\n2. Jueces\n9. Argumentos\n• uno\n• dos"
+    limpia = "".join(f"{n}. Sección\n" for n in range(1, 9)) + "9. Argumentos\n• uno\n• dos"
     bucle = "1. Instancia\n9. Argumentos\n" + "• frase repetida\n" * 80
     corte = _corte_simulado(monkeypatch, [("resumen", "stop"), (limpia, "length"),
-                                          (bucle, "length"), (bucle, "length"), ("juris", "stop")])
+                                          (bucle, "length"), (bucle, "length"),
+                                          ("10. Contraparte\n11. Decisión Final\nConfirma.", "stop"),
+                                          ("juris", "stop")])
     r = corte.analizar(b"%PDF", "09359-2022-00070", modelo="qwen/qwen3", nivel="apelacion")
-    assert r["extraccion"] == limpia
+    # Se conserva el intento con menos repetición (sin bucle) y la continuación
+    # rehace desde la última sección presente.
+    assert "frase repetida" not in r["extraccion"] and r["extraccion"].startswith("1. Sección")
+    assert "11. Decisión Final" in r["extraccion"]
 
 
 def test_validar_corte_exige_seccion_decision_final():
