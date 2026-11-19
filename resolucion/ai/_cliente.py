@@ -977,3 +977,17 @@ def sin_linea_cortada(texto: str) -> str:
     if not t or t[-1] in ".:;)”\"»…" or "\n" not in t or len(ultima) < 80:
         return t
     return t[:t.rfind("\n")].rstrip()
+
+
+def sin_repetidas(texto: str, minimo: int = 40) -> str:
+    """Quita las líneas largas repetidas tal cual (bucle de la IA: puerta v8,
+    17230-2022-07361 repetía 8 veces las mismas tres resoluciones)."""
+    vistas, salida = set(), []
+    for linea in (texto or "").split("\n"):
+        clave = re.sub(r"\W+", " ", linea).strip().lower()
+        if len(clave) >= minimo:
+            if clave in vistas:
+                continue
+            vistas.add(clave)
+        salida.append(linea)
+    return "\n".join(salida)

@@ -26,7 +26,7 @@ from resolucion.ai._cliente import (
     llamar_openai, llamar_qwen, crear_docx_corte,
     GPT_MAX_TOKENS, GPT_MAX_CHARS_INPUT, QWEN_MAX_CHARS_INPUT,
     GPT_PAUSA_SEG, EJEMPLOS_CORTE_DIR, MIN_CHARS_RESUMEN,
-    elegir_salida_reintento, sin_linea_cortada,
+    elegir_salida_reintento, sin_linea_cortada, sin_repetidas,
 )
 from config.pdf_utils import cargar_ejemplos_few_shot
 from resolucion.ai.tribunal import (clasificar_y_tipificar, _codigos_controversia, secciones_faltantes,
@@ -304,7 +304,7 @@ def analizar(
     if fr3 == "length":
         truncados.append(f"Jurisprudencia {ETQ}")
         jurisprudencia = sin_linea_cortada(jurisprudencia)
-    resultado["jurisprudencia"] = jurisprudencia
+    resultado["jurisprudencia"] = sin_repetidas(jurisprudencia)
     time.sleep(GPT_PAUSA_SEG)
 
     # ── Prompts 4 y 7: categorías y puntos controvertidos del RECURSO ────────

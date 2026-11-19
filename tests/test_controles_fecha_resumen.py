@@ -27,3 +27,15 @@ def test_voto_no_se_corta_por_firmado_en_minusculas():
     voto = ("VOTO SALVADO DE: JUEZ X\nAntecedentes: el contrato fue firmado por las partes contratantes. " +
             "Relleno. " * 50 + "DECISIÓN: se confirma la sentencia.\nFirmado por JUEZ X")
     assert C.extracto_voto(voto, 2000).endswith("se confirma la sentencia.")
+
+
+def test_sin_repetidas_quita_bucle():
+    from resolucion.ai._cliente import sin_repetidas
+    r = "• Resolución 20-2004 de la Corte Nacional de Justicia, Registro Oficial 413."
+    t = "\n".join([r, "• Otra cita distinta y suficientemente larga para contar.", r, r])
+    assert sin_repetidas(t).count("20-2004") == 1
+
+
+def test_monto_ocr_con_espacio_antes_de_la_o():
+    from resolucion.ai import fidelidad as f
+    assert f._digitos("36,382.1 O") == f._digitos("36.382,10")

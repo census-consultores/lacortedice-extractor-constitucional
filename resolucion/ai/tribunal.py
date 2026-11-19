@@ -24,7 +24,7 @@ import json
 import httpx
 
 from resolucion.ai._cliente import (
-    sin_linea_cortada,
+    sin_linea_cortada, sin_repetidas,
     cargar_api_key_openai, cargar_api_key_openrouter, es_modelo_qwen,
     cargar_prompt, extraer_texto_pdf,
     llamar_openai, llamar_qwen, crear_docx_tribunal,
@@ -748,7 +748,7 @@ def analizar(
     if fr3 == "length":
         truncados.append("Jurisprudencia")
         jurisprudencia = sin_linea_cortada(jurisprudencia)
-    resultado["jurisprudencia"] = jurisprudencia
+    resultado["jurisprudencia"] = sin_repetidas(jurisprudencia)
     time.sleep(GPT_PAUSA_SEG)
 
     # ── Prompts 4 y 7: Clasificación y tipos de defecto ──────────────────────

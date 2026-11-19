@@ -37,7 +37,8 @@ def _norm(s: str) -> str:
 
 def _digitos(s: str) -> str:
     """Solo dígitos, con los errores de OCR más comunes corregidos (o→0, l→1)."""
-    s = re.sub(r"(?<=\d)[oO](?=[\d.,oO])|(?<=[\d.,])[oO]", "0", s or "")
+    # También "36,382.1 O": OCR con espacio antes de la O (puerta v8, 17230-2017-07411).
+    s = re.sub(r"(?<=\d)[oO](?=[\d.,oO])|(?<=[\d.,])[oO]|(?<=\d)\s[oO]\b", "0", s or "")
     return re.sub(r"\D", "", s)
 
 

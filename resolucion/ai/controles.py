@@ -509,11 +509,11 @@ def _revoca_si_invierte(ext, secs, norm, ajustes):
         resolutiva = norm[inicio:inicio + 1500] if inicio >= 0 else ""
     antes, despues = _sentido(previa), _sentido(resolutiva)
     if antes and despues and antes != despues and "nulidad" not in resolutiva[:400]:
-        lineas = decision.rstrip().split("\n")
-        if re.match(r"(confirma|reforma|declara la nulidad)\b", sin_tildes(lineas[-1].strip(" *•"))):
-            lineas[-1] = "Revoca la sentencia."
-        else:  # la última línea es la transcripción: se conserva y se agrega la frase
-            lineas.append("Revoca la sentencia.")
+        # Se quita toda frase canónica contraria, no solo la última línea (puerta
+        # v8, 01613-2020-00108: quedaban "Reforma la sentencia." y "Revoca la sentencia.").
+        canon = re.compile(r"(confirma|reforma|declara la nulidad)\b[^\n]{0,40}\.?$")
+        lineas = [l for l in decision.rstrip().split("\n") if not canon.match(sin_tildes(l.strip(" *•")))]
+        lineas.append("Revoca la sentencia.")
         ext = _reemplazar(ext, secs["decision"], "\n".join(lineas))
         ajustes.append(f"Decisión de apelación: primera instancia {antes} la demanda y la Sala {despues}; se cambió a 'Revoca la sentencia.'")
     return ext
