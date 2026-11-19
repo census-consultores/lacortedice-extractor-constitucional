@@ -1,0 +1,109 @@
+DÉCIMO PRIMER PROMPT
+EXTRACCIÓN DE INFORMACIÓN DE SENTENCIA DE APELACIÓN CIVIL Y MERCANTIL DE LA CORTE PROVINCIAL DE JUSTICIA
+Objetivo
+Analizar la sentencia proporcionada y extraer de manera literal, técnica, exhaustiva y estructurada toda la información contenida en una sentencia de segunda instancia emitida por la Sala Especializada de lo Civil y Mercantil de una Corte Provincial de Justicia del Ecuador (o por la Sala Multicompetente o la Sala de lo Civil, Mercantil y Laboral, cuando conozca materia civil o mercantil) al resolver un recurso de apelación.
+La información debe obtenerse exclusivamente del contenido de la sentencia, sin agregar interpretaciones, inferencias, conclusiones propias, resúmenes subjetivos ni información externa.
+La finalidad es generar una ficha uniforme de análisis jurisprudencial que permita comprender integralmente el recurso de apelación, los agravios y argumentos de las partes y la decisión adoptada por la Corte Provincial.
+Contexto procesal: en materia civil y mercantil la sentencia de primera instancia la dicta un juez unipersonal de la Unidad Judicial Civil, Civil y Mercantil o Multicompetente. Contra ella cabe recurso de apelación ante la Sala Especializada de lo Civil y Mercantil de la Corte Provincial de Justicia, tribunal de tres jueces, que puede CONFIRMAR, REVOCAR o REFORMAR la sentencia de primera instancia, o DECLARAR LA NULIDAD de la sentencia o del proceso. Contra la sentencia de la Corte Provincial cabe, a su vez, recurso de casación ante la Corte Nacional de Justicia, que NO es objeto de este prompt. La sentencia recurrida en apelación es siempre la del juez de primera instancia. Si la sentencia de apelación resuelve también una adhesión al recurso o una apelación de la contraparte, o si resuelve sobre la demanda y la reconvención, debe distinguirse claramente cada pronunciamiento.
+Instrucciones Generales (Obligatorias)
+1.	Extrae únicamente la información que conste expresamente en la sentencia.
+2.	No reformules, completes ni infieras información.
+3.	Cuando un dato no aparezca expresamente en la sentencia, escribir literalmente: "No consta en la sentencia".
+4.	Utiliza exactamente la estructura y numeración que se detalla a continuación.
+5.	La redacción debe ser técnica, formal y exhaustiva.
+6.	Los antecedentes deberán redactarse exclusivamente en prosa continua, sin utilizar viñetas.
+7.	Los argumentos del recurrente y de la contraparte deberán presentarse obligatoriamente en formato de viñetas.
+8.	Cada viñeta deberá contener el desarrollo completo del argumento correspondiente, sin resumir, condensar ni omitir fundamentos fácticos o jurídicos.
+9.	Bajo ninguna circunstancia se incorporarán interpretaciones, comentarios o criterios propios.
+10.	Todo el contenido debe corresponder exclusivamente a lo expresado por las partes o por la Sala de la Corte Provincial en la sentencia.
+11.	No elaborar resúmenes ejecutivos, síntesis introductorias ni contextualizaciones generales; el origen del recurso de apelación deberá explicarse únicamente en la sección de antecedentes.
+12.	Los nombres de jueces, abogados y partes se escriben sin títulos honoríficos y con mayúsculas y minúsculas correctas.
+13.	Todo lo que sigue al encabezado 'VOTO SALVADO' es del juez disidente. No lo uses en antecedentes, agravios, decisión, criterio del tribunal ni jurisprudencia de la Sala; solo en las secciones 13 y 14. Si un párrafo se refiere a personas o hechos ajenos a las partes del proceso (texto de otra causa), no lo uses.
+14.	La exhaustividad nunca autoriza a completar: cada viñeta de argumentos debe corresponder a un pasaje concreto de la sentencia.
+15.	REGLAS DE LA REVISIÓN DE LOS ABOGADOS (piloto civil v2): (a) Los agravios (sección 8) son solo los que la sentencia recoge de la fundamentación del recurso; no agregues agravios típicos (falta de motivación, incongruencia, debido proceso, derecho a la defensa) si el recurrente no los planteó. (b) En los argumentos del recurrente y de la contraparte (secciones 9 y 10) va solo lo que la sentencia les atribuye; lo que la Sala analiza o concluye no va ahí. Cierra cada viñeta con la ubicación del pasaje entre paréntesis (la palabra "Sección" o "Considerando" y el número u ordinal con que la sentencia lo rotula). (c) En la decisión de primera instancia (sección 6) copia los plazos o términos con el número de días y la palabra exactos, e identifica el bien o la obligación de que se trata. (d) No atribuyas a la Sala lo que resolvió el juez de primera instancia (por ejemplo, el rechazo de una reconvención): si la Sala no se pronunció sobre la reconvención, dilo así. (e) Si la Sala resolvió sobre prueba nueva o no anunciada en segunda instancia, indícalo en los antecedentes. (f) Puerta de validación (piloto civil v2): si la sentencia de apelación solo enumera los agravios con un título, o solo dice que una parte compareció o se opuso, eso es todo lo que va en sus argumentos; si no recoge nada de lo que alegó una parte, escribe "No consta en la sentencia". Nunca completes los argumentos de segunda instancia con la demanda, la contestación, la sentencia de primera instancia ni el análisis de la Sala. (g) Las secciones 13 y 14 se llenan solo con el texto que sigue al encabezado del voto salvado o del voto concurrente; si la sentencia no tiene ese encabezado, ambas dicen "No hubo voto salvado." No pongas ahí el alegato de una parte ni una cita de jurisprudencia. (h) Solo hay reconvención si la sentencia usa la palabra "reconvención" o "contrademanda"; la contestación, la adhesión al recurso o una tercería no son reconvención.
+Estructura de Extracción
+1. Instancia
+Indicar siempre:
+Segunda instancia – Sala Especializada de lo Civil y Mercantil de la Corte Provincial de Justicia
+Agrega a continuación la provincia tal como conste en la sentencia. Si la Sala tiene otra denominación (Sala Multicompetente, Sala de lo Civil, Mercantil y Laboral, Sala de lo Civil, Mercantil, Inquilinato y Materias Residuales), transcríbela literalmente en lugar de la denominación genérica.
+
+2. Jueces que intervinieron
+Identifica únicamente a los tres jueces provinciales (o conjueces, si la sentencia indica que actuaron en reemplazo) que integran el tribunal de apelación y suscriben la sentencia: el juez ponente y los otros dos. No incluyas secretarios, ni al juez de primera instancia, ni jueces mencionados en el historial procesal que no suscriban esta decisión.
+• Juez Ponente:
+• Otros Jueces:
+3. Fecha de emisión de la sentencia de apelación
+Indicarla exactamente como consta en la sentencia.
+4. Juzgado que emitió la sentencia recurrida
+Indicar literalmente la Unidad Judicial que dictó la sentencia de primera instancia apelada, con su sede, tal como consta: el tipo de unidad judicial (civil, civil y mercantil, multicompetente u otra), seguido de la sede (parroquia o cantón) y de la provincia que indique la sentencia.
+Si la sentencia identifica al juez de primera instancia y la fecha de la sentencia recurrida, transcríbelos a continuación (nombre sin títulos honoríficos).
+
+5. Antecedentes del caso en apelación
+Explicar de forma clara, completa y técnica:
+•	Quién presentó la demanda original y contra quién, con la calidad en que comparecieron (propietario, poseedor, acreedor, deudor, garante, heredero, tenedor del título, socio, asegurado, arrendador, arrendatario, tercerista, representante legal de una compañía, etc.).
+•	Cuál fue la pretensión principal (cumplimiento o resolución de contrato, cobro de obligación dineraria o de título ejecutivo, nulidad o rescisión por lesión enorme, simulación o vicios del consentimiento, daños y perjuicios, daño moral, reivindicación, prescripción adquisitiva de dominio, acción posesoria, partición, deslinde, servidumbre, desahucio o terminación de arrendamiento, pretensión sucesoria, impugnación de resolución societaria, pago de seguro, insolvencia, tercería, etc.), el tipo de procedimiento y, si consta, la cuantía.
+•	Si existió reconvención y cuál fue su objeto.
+•	Cuáles fueron las excepciones de la parte demandada, si constan.
+•	Qué resolvió el juez de primera instancia.
+•	Cómo se desarrolló el proceso hasta llegar a la apelación: quién interpuso el recurso, si hubo adhesión a la apelación de la contraparte, si se celebró audiencia de apelación, si se practicó prueba en segunda instancia.
+Esta sección deberá redactarse exclusivamente en prosa continua, sin utilizar viñetas.
+6. Decisión de primera instancia
+Indicar de manera clara, en prosa continua, si el juez de primera instancia:
+• Aceptó la demanda.
+• Aceptó parcialmente la demanda.
+• Rechazó la demanda.
+• Aceptó o rechazó la reconvención (si la hubo).
+• Declaró el abandono, declaró la nulidad, aceptó el desistimiento, aprobó la transacción o aprobó la conciliación (si fuera el caso).
+Explicar los aspectos principales resueltos por el juez de primera instancia: qué declaró (prescripción adquisitiva, nulidad, resolución, simulación, dominio, existencia de la obligación o de la servidumbre, insolvencia), qué pretensiones y rubros concedió y cuáles negó, con los valores si constan en la sentencia de apelación, qué ordenó (pago, entrega o restitución del bien, inscripción o cancelación registral, otorgamiento de escritura, que siga adelante la ejecución, partición, desalojo) y si dispuso intereses, costas, medidas cautelares u otras medidas.
+Cuando la sentencia muestre una operación (valor recalculado – valor pagado = diferencia), menciona solo el valor que se ordena pagar. Cita cada norma con su cuerpo normativo exacto: no conviertas el nombre de un reglamento en el de la ley que desarrolla, ni le pongas a una norma un nombre que la sentencia no usa.
+7. Recurrente
+Indicar qué parte interpuso el recurso de apelación (actor, demandado, reconviniente, tercerista, compañía, aseguradora, institución financiera, herederos, u otro), con su nombre tal como consta. Si ambas partes apelaron o una se adhirió a la apelación de la otra, indícalo y señala a quién corresponde cada recurso o adhesión.
+
+8. Causales o agravios invocados
+Identificar expresamente los agravios o puntos de la sentencia de primera instancia que el recurrente cuestiona, tal como la sentencia de apelación los recoge (el recurso de apelación no está sujeto a causales tasadas; la Sala resuelve sobre los puntos a los que se contrae el recurso). Presentar cada agravio en una viñeta de punto negro (•), por ejemplo:
+• Errónea valoración de la prueba sobre la existencia, validez o incumplimiento del contrato.
+• Errónea valoración de la prueba de la posesión (inspección judicial, testimonios) o del tiempo de posesión.
+• Indebida declaratoria (o no declaratoria) de la prescripción adquisitiva, de la nulidad, de la resolución, de la simulación o de la lesión enorme.
+• Falta de concurrencia de los requisitos de la reivindicación (dominio del actor, posesión del demandado, singularidad e identidad del bien).
+• Indebida valoración del título ejecutivo o de las excepciones propuestas.
+• Errónea cuantificación o negativa de los daños y perjuicios, del daño emergente, del lucro cesante o del daño moral.
+• Indebida aplicación o no aplicación de intereses, cláusula penal o costas.
+• Falta de valoración de la escritura pública, del contrato, del informe pericial de avalúo o del certificado registral.
+• Falta de legitimación en la causa o de personería no acogida o acogida indebidamente.
+• Prescripción extintiva, caducidad o cosa juzgada no acogida o acogida indebidamente.
+• Falta de motivación o incongruencia (extra, ultra o citra petita) de la sentencia de primera instancia.
+• Nulidad procesal (falta de citación, incompetencia, omisión de solemnidades sustanciales, indefensión).
+Transcribe los agravios con la denominación que use la sentencia. Si la Sala señala que algún agravio fue planteado fuera de los límites del recurso o no fue fundamentado, indícalo.
+9. Argumentos del Recurrente
+Extraer todos los argumentos que la sentencia atribuye al recurrente en su recurso de apelación, en la fundamentación escrita y en la audiencia. Tómalos solo de los pasajes donde la sentencia relata lo que dijo el recurrente ("el recurrente manifiesta", "en su fundamentación señala", "en audiencia alegó"). No los tomes de la demanda o la contestación de primera instancia, ni del análisis de la Sala, ni de lo que razonó el juez de primera instancia.
+Presentar los argumentos en viñetas. Cada viñeta contendrá el desarrollo completo de un argumento, tal como la sentencia lo recoge, sin resumir ni condensar. La extensión la fija la sentencia: si ella resume el recurso en una o dos frases, escribe una o dos viñetas. Ningún argumento deberá iniciar con "Que", "Alega que", "Sostiene que" o similares. Si apelaron ambas partes, identifica a quién corresponde cada argumento. Si no consta, escribe 'No consta en la sentencia'.
+NORMATIVA APLICADA:
+Número de artículo y cuerpo normativo de cada norma que la sentencia dice que el recurrente invocó, en prosa, separadas por punto y coma (;). Si no consta, escribir: "No consta normativa aplicada atribuible a esta parte en la sentencia".
+10. Argumentos de la Contraparte
+Extraer todos los argumentos que la sentencia atribuye a la contraparte para oponerse al recurso o defender la sentencia de primera instancia. Tómalos solo de los pasajes donde la sentencia relata lo que dijo la contraparte en segunda instancia (contestación al recurso o audiencia). No los tomes de la demanda o la contestación de primera instancia ni del análisis de la Sala.
+Presentar los argumentos en viñetas, con el desarrollo completo de cada uno tal como la sentencia lo recoge. La extensión la fija la sentencia. Si la sentencia indica que la contraparte no contestó el recurso ni compareció a la audiencia, indicarlo expresamente. Si la sentencia solo dice que la contraparte intervino sin recoger lo que dijo, escribe "La sentencia no recoge el contenido de la intervención de la contraparte". Si no consta, escribe 'No consta en la sentencia'.
+NORMATIVA APLICADA:
+Número de artículo y cuerpo normativo de cada norma que la sentencia dice que la contraparte invocó, en prosa, separadas por punto y coma (;). Si no consta, escribir: "No consta normativa aplicada atribuible a esta parte en la sentencia".
+11. Decisión Final
+Indicar textualmente la decisión de la Sala de la Corte Provincial y cerrar OBLIGATORIAMENTE esta sección con UNA SOLA de las siguientes frases canónicas, escrita exactamente así, en su propia línea, como última línea de la sección:
+• Confirma la sentencia.
+• Revoca la sentencia.
+• Reforma la sentencia.
+• Declara la nulidad.
+Reglas para elegir la frase: si la Sala mantiene íntegramente la decisión de primera instancia (aunque corrija su motivación o rechace el recurso), "Confirma la sentencia."; si la deja sin efecto y resuelve en sentido contrario (por ejemplo, acepta la demanda que fue rechazada o rechaza la demanda que fue aceptada; acepta la reconvención que fue rechazada), "Revoca la sentencia."; si la mantiene en lo principal pero modifica parte de lo resuelto (agrega o suprime pretensiones o rubros, cambia valores, modifica la tasa o el período de intereses, elimina o agrega la condena en costas, modifica los linderos o la identificación del bien, etc.), "Reforma la sentencia."; si declara la nulidad de la sentencia o del proceso y dispone que se vuelva a sustanciar o a dictar sentencia, "Declara la nulidad.". Si la Sala resuelve de modo distinto la demanda y la reconvención (por ejemplo, confirma lo resuelto sobre la demanda y revoca lo resuelto sobre la reconvención), describe ambos pronunciamientos antes de la frase canónica y elige la frase que corresponda al pronunciamiento sobre la DEMANDA PRINCIPAL. Antes de la frase canónica, explicar de forma literal los fundamentos principales utilizados por la Sala para resolver el recurso y transcribir la parte resolutiva, incluyendo qué pretensiones y rubros se conceden, modifican o niegan.
+La decisión es la parte resolutiva del voto de mayoría, que aparece antes del encabezado 'VOTO SALVADO'. Si una frase del Vistos ('confirmando por unanimidad') contradice la parte resolutiva, prevalece la parte resolutiva. Si la Sala acepta total o parcialmente el recurso de cualquiera de las partes y modifica cualquier punto (aunque sea solo intereses o costas), la frase es 'Reforma la sentencia.'.
+12. Medidas Adicionales
+Detallar cualquier disposición complementaria ordenada por la Sala: liquidación de valores, intereses, costas, honorarios, multas, devolución del proceso al juzgado de origen para ejecución, oficios a registradores, notarías, municipios u otras entidades, ratificación o levantamiento de medidas cautelares, llamados de atención, etc.
+Si no existen:
+"No consta en la sentencia".
+Esta sección deberá redactarse en prosa continua.
+13. Voto Salvado
+Indicar el nombre completo del juez o jueza provincial que emitió voto salvado.
+Si no existe:
+"No consta en la sentencia".
+14. Argumento del Voto Salvado
+Transcribe literalmente la parte resolutiva del voto salvado y los párrafos de su análisis que explican la discrepancia (hasta 1.500 palabras). No transcribas los antecedentes que repiten los de la mayoría.
+No interpretar.
+No reformular.
+Si no existe voto salvado:
+"No consta en la sentencia".
+

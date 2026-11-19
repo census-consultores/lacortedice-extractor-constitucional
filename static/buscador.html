@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Buscador de sentencias — La Corte Dice {{MATERIA}}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --tinta:#0A0A0A; --oro:#B49A3A; --oro-claro:#D9C77E; --crema:#F5F2E9; --papel:#FDFCF8;
+    --gris:#5A5750; --linea:#E3DDCB; --resalte:#F3E9BF;
+    --serif:"Fraunces", Georgia, serif; --sans:"Inter", Helvetica, Arial, sans-serif; --mono:"JetBrains Mono", Menlo, monospace;
+  }
+  * { box-sizing:border-box; }
+  html { background:var(--crema); }
+  body { margin:0; font-family:var(--sans); font-size:15px; line-height:1.55; color:var(--tinta); background:var(--crema); }
+  a { color:inherit; }
+  :focus-visible { outline:2px solid var(--oro); outline-offset:2px; }
+
+  header { background:var(--tinta); color:var(--papel); border-bottom:3px solid var(--oro); }
+  .cab { max-width:1080px; margin:0 auto; padding:22px 20px 18px; display:flex; align-items:baseline; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+  .marca { font-family:var(--serif); font-variant:small-caps; letter-spacing:.02em; font-size:26px; font-weight:600; margin:0; line-height:1.1; }
+  .marca em { font-style:italic; font-weight:400; color:var(--oro-claro); font-variant:normal; }
+  .cab small { color:#B9B4A6; font-size:13px; }
+  .cab button.enlace { background:none; border:0; color:var(--oro-claro); font:inherit; font-size:13px; cursor:pointer; padding:0; text-decoration:underline; text-underline-offset:3px; }
+
+  main { max-width:1080px; margin:0 auto; padding:28px 20px 60px; }
+
+  /* Acceso */
+  #acceso { max-width:460px; margin:60px auto; background:var(--papel); border:1px solid var(--linea); border-top:3px solid var(--oro); padding:32px 32px 28px; }
+  #acceso h2 { font-family:var(--serif); font-weight:600; font-size:24px; margin:0 0 6px; }
+  #acceso p { color:var(--gris); margin:0 0 20px; text-align:justify; hyphens:auto; }
+
+  label { display:block; font-size:13px; color:var(--gris); margin-bottom:6px; }
+  input, select { width:100%; font:inherit; font-size:15px; padding:11px 12px; border:1px solid #CFC9B8; border-radius:3px; background:var(--papel); color:var(--tinta); }
+  input:focus, select:focus { border-color:var(--oro); outline:none; box-shadow:0 0 0 3px rgba(180,154,58,.18); }
+  .boton { font:inherit; font-weight:600; font-size:15px; padding:11px 22px; border-radius:3px; border:1px solid var(--tinta); background:var(--tinta); color:var(--oro-claro); cursor:pointer; white-space:nowrap; }
+  .boton:hover { background:#222; }
+  .boton.sec { background:transparent; color:var(--tinta); border-color:#CFC9B8; }
+  .boton.sec:hover { border-color:var(--tinta); }
+
+  /* Buscador */
+  #busqueda { display:none; }
+  .caja { background:var(--papel); border:1px solid var(--linea); padding:22px 24px 20px; }
+  .fila1 { display:flex; gap:10px; align-items:stretch; }
+  .fila1 input { font-family:var(--serif); font-size:20px; padding:12px 14px; }
+  .fila2 { display:grid; grid-template-columns:minmax(220px,2fr) 110px 170px; gap:10px; margin-top:12px; }
+  .ayuda { color:var(--gris); font-size:13px; margin:10px 0 0; }
+  .ayuda code { font-family:var(--mono); font-size:12px; background:var(--crema); padding:1px 5px; border-radius:2px; }
+
+  #estado { margin:26px 0 10px; color:var(--gris); font-size:14px; display:flex; justify-content:space-between; gap:12px; align-items:baseline; flex-wrap:wrap; }
+  #estado strong { font-family:var(--serif); font-size:20px; color:var(--tinta); font-weight:600; }
+  .vacio { background:var(--papel); border:1px dashed #CFC9B8; padding:28px; color:var(--gris); text-align:center; }
+  .error { background:#FBEFEA; border-left:3px solid #B4493A; padding:12px 16px; color:#6A2A20; }
+
+  /* Resultados */
+  .lista { list-style:none; margin:0; padding:0; }
+  .res { background:var(--papel); border:1px solid var(--linea); padding:18px 22px 18px 22px; margin-bottom:10px; display:grid; grid-template-columns:230px 1fr; gap:6px 28px; }
+  .res .num { font-family:var(--mono); font-size:16px; font-weight:500; letter-spacing:.01em; }
+  .res .unidad { color:var(--gris); font-size:13px; margin-top:4px; line-height:1.4; }
+  .res .inst { margin-top:10px; display:flex; flex-wrap:wrap; gap:6px; }
+  .res .inst a { font-size:12.5px; font-weight:500; text-decoration:none; border:1px solid #CFC9B8; border-radius:3px; padding:3px 9px; color:var(--tinta); background:var(--papel); }
+  .res .inst a:hover { border-color:var(--oro); background:var(--resalte); }
+  .res .inst a.hit { border-color:var(--oro); background:var(--oro-claro); }
+  .res .partes { display:grid; grid-template-columns:1fr 1fr auto; gap:14px; font-size:14px; }
+  .res .partes span { display:block; color:var(--gris); font-size:12.5px; }
+  .res .frag { margin:12px 0 0; padding-left:14px; border-left:2px solid var(--oro); font-family:var(--serif); font-size:15.5px; line-height:1.6; color:#2A2823; text-align:justify; hyphens:auto; }
+  .res .frag b { font-weight:600; background:var(--resalte); padding:0 2px; }
+
+  .pie { margin-top:18px; display:flex; gap:10px; justify-content:center; }
+
+  @media (max-width:760px) {
+    .cab { padding:18px 16px; } main { padding:18px 14px 50px; }
+    .fila1 { flex-direction:column; } .fila2 { grid-template-columns:1fr 1fr; } .fila2 > :first-child { grid-column:1 / -1; }
+    .res { grid-template-columns:1fr; } .res .partes { grid-template-columns:1fr; gap:6px; }
+    #acceso { margin:24px auto; padding:24px 20px; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="cab">
+    <h1 class="marca">La Corte Dice <em>{{MATERIA}}</em></h1>
+    <div><small id="nota-cab">Buscador de sentencias</small> <button type="button" class="enlace" id="cambiar" hidden>Cambiar clave</button></div>
+  </div>
+</header>
+<main>
+  <section id="acceso">
+    <h2>Clave de acceso</h2>
+    <p>Este buscador es de uso reservado. Escriba la clave que le entregó La Corte Dice; quedará guardada en este navegador y no tendrá que repetirla.</p>
+    <form id="f-acceso">
+      <label for="key">Clave</label>
+      <input id="key" type="password" autocomplete="off" required>
+      <div style="margin-top:16px;display:flex;gap:10px;justify-content:flex-end">
+        <button type="submit" class="boton">Entrar</button>
+      </div>
+    </form>
+  </section>
+
+  <section id="busqueda">
+    <form id="f" class="caja">
+      <div class="fila1">
+        <input id="q" required placeholder="Escriba una frase o palabras" aria-label="Frase o palabras">
+        <button type="submit" class="boton">Buscar</button>
+      </div>
+      <div class="fila2">
+        <div><label for="tribunal">Unidad judicial (código)</label><input id="tribunal" placeholder="Todas"></div>
+        <div><label for="anio">Año</label><input id="anio" placeholder="Todos" inputmode="numeric"></div>
+        <div><label for="nivel">Instancia</label>
+          <select id="nivel"><option value="">Todas</option><option value="tribunal">Primera instancia</option><option value="apelacion">Apelación</option><option value="corte">Casación</option></select></div>
+      </div>
+      <p class="ayuda">Entre comillas busca la frase exacta: <code>"velo societario"</code>. Un guion delante excluye una palabra: <code>reivindicación -prescripción</code>. Sin comillas encuentra las palabras aunque no vayan juntas.</p>
+    </form>
+    <div id="estado"></div>
+    <div id="res"></div>
+    <div class="pie" id="pie"></div>
+  </section>
+</main>
+<script>
+const LIM = 25; let offset = 0;
+const $ = id => document.getElementById(id);
+const lee = () => { try { return localStorage.getItem('buscador_key') || ''; } catch (e) { return ''; } };
+function mostrar(conClave) {
+  $('acceso').style.display = conClave ? 'none' : '';
+  $('busqueda').style.display = conClave ? 'block' : 'none';
+  $('cambiar').hidden = !conClave;
+  if (conClave) $('q').focus(); else $('key').focus();
+}
+$('f-acceso').addEventListener('submit', e => { e.preventDefault(); try { localStorage.setItem('buscador_key', $('key').value); } catch (e2) {} mostrar(true); });
+$('cambiar').addEventListener('click', () => { $('key').value = ''; mostrar(false); });
+mostrar(!!lee());
+
+function esc(s) { return String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+function frag(s) { return esc(s).replace(/&lt;b&gt;/g, '<b>').replace(/&lt;\/b&gt;/g, '</b>'); }
+function fecha(d) { if (!d) return ''; const [a, m, dd] = String(d).slice(0, 10).split('-'); return `${dd}/${m}/${a}`; }
+const NIVELES = [['tribunal', 'url_pdf_tribunal', 'Primera instancia'], ['apelacion', 'url_pdf_apel', 'Apelación'], ['corte', 'url_pdf_cnj', 'Casación']];
+
+function enlaces(f) {
+  return NIVELES.filter(([, k]) => f[k]).map(([n, k, t]) =>
+    `<a href="${esc(f[k])}" target="_blank" rel="noopener" class="${n === f.nivel ? 'hit' : ''}" title="Abrir el PDF de ${t.toLowerCase()}">${t}${n === f.nivel ? ' (coincide)' : ''}</a>`).join('');
+}
+
+async function buscar() {
+  const p = new URLSearchParams({ q: $('q').value, limite: LIM, offset });
+  for (const k of ['tribunal', 'anio', 'nivel']) if ($(k).value.trim()) p.set(k, $(k).value.trim());
+  $('estado').textContent = 'Buscando…'; $('res').innerHTML = ''; $('pie').innerHTML = '';
+  let r;
+  try { r = await fetch('/buscar?' + p, { headers: { 'x-worker-key': lee() } }); }
+  catch (e) { $('estado').textContent = ''; $('res').innerHTML = '<div class="error">No hay conexión con el servidor. Revise su conexión e intente de nuevo.</div>'; return; }
+  if (r.status === 401) { $('estado').textContent = ''; $('res').innerHTML = '<div class="error">La clave guardada no es válida. Use «Cambiar clave» arriba a la derecha.</div>'; return; }
+  if (!r.ok) { $('estado').textContent = ''; $('res').innerHTML = `<div class="error">El servidor respondió con un error (${r.status}). Intente de nuevo en un momento.</div>`; return; }
+  const j = await r.json();
+  if (!j.total) {
+    $('estado').textContent = '';
+    $('res').innerHTML = '<div class="vacio">Ninguna sentencia contiene esa frase. Pruebe sin comillas, con menos palabras o sin filtros.</div>';
+    return;
+  }
+  const desde = offset + 1, hasta = Math.min(offset + LIM, j.total);
+  $('estado').innerHTML = `<div><strong>${j.total.toLocaleString('es-EC')}</strong> ${j.total === 1 ? 'sentencia contiene' : 'sentencias contienen'} <em>${esc($('q').value)}</em></div><div>${j.total > LIM ? `Mostrando ${desde}–${hasta}` : ''}</div>`;
+  $('res').innerHTML = '<ul class="lista">' + j.resultados.map(f => `<li class="res">
+    <div>
+      <div class="num">${esc(f.numero)}</div>
+      <div class="unidad">${esc(f.tribunal_nombre || f.tribunal_codigo || '')}</div>
+      <div class="inst">${enlaces(f)}</div>
+    </div>
+    <div>
+      <div class="partes">
+        <div><span>Actor</span>${esc(f.actor || '—')}</div>
+        <div><span>Demandado</span>${esc(f.demandado || '—')}</div>
+        <div><span>Sentencia</span>${fecha(f.fecha_sentencia_caso) || (f.año ? esc(f.año) : '—')}</div>
+      </div>
+      <p class="frag">${frag(f.fragmento)}</p>
+    </div>
+  </li>`).join('') + '</ul>';
+  if (offset > 0) $('pie').innerHTML += '<button class="boton sec" onclick="offset-=LIM;buscar()">Anteriores</button>';
+  if (offset + LIM < j.total) $('pie').innerHTML += '<button class="boton sec" onclick="offset+=LIM;buscar()">Siguientes</button>';
+  window.scrollTo({ top: 0 });
+}
+$('f').addEventListener('submit', e => { e.preventDefault(); offset = 0; buscar(); });
+</script>
+</body>
+</html>

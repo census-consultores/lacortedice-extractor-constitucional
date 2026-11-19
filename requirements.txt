@@ -1,0 +1,39 @@
+# civil-worker — dependencias
+# Python 3.12+
+
+# ── API web ───────────────────────────────────────────────────────────────────
+fastapi>=0.111
+uvicorn[standard]>=0.29
+sse-starlette>=1.8        # Server-Sent Events para progreso en tiempo real
+
+# ── Base de datos (worker_jobs directo a Postgres) ────────────────────────────
+psycopg2-binary>=2.9
+
+# ── HTTP client (llamadas a Strapi) ──────────────────────────────────────────
+httpx>=0.27
+
+# ── Motor de extracción (copiado de tribunal_tributario) ─────────────────────
+requests>=2.31
+openai>=1.50
+pypdf>=4.0
+python-docx>=1.0
+pymupdf>=1.24
+pandas>=2.0
+openpyxl>=3.1
+python-multipart>=0.0.9  # FastAPI: uploads (Excel de lista)
+
+# ── Briefs doctrinales (worker/brief_worker.py) ──────────────────────────────
+# KMeans + silhouette para agrupar los criterios de un juez antes de pedirle
+# el brief a OpenAI. Solo lo usa resolucion/briefs.py::cluster_criterio_juez.
+scikit-learn>=1.4
+numpy>=1.26
+
+# ── Monitoreo de recursos ─────────────────────────────────────────────────────
+psutil>=5.9
+
+# ── Scheduler de crons ────────────────────────────────────────────────────────
+apscheduler>=3.10,<4.0
+
+# ── Tests ─────────────────────────────────────────────────────────────────────
+pytest>=8.0
+pytest-mock>=3.14

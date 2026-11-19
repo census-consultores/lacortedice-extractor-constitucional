@@ -1,0 +1,45 @@
+EVIDENCIA AUSENTE — CLASIFICACIÓN INTERNA PARA ANÁLISIS ESTADÍSTICO (NO SE MUESTRA AL USUARIO)
+
+Objetivo:
+Identificar si el juzgador señala que UNA PARTE (actor o demandado) NO PRESENTÓ una prueba ESPECÍFICA E IDENTIFICABLE, y que esa ausencia influyó en el resultado.
+
+Por qué este prompt recibe la sentencia completa y no los campos ya extraídos: en el pipeline de origen (materia tributaria) se midió que, con los campos extraídos (objeto + pruebas + criterio del juzgador), la precisión de este campo fue 0% — la señal simplemente no vive ahí. El pasaje donde el juzgador reprocha una prueba faltante suele estar en el cuerpo del análisis de cada pretensión o requisito, fuera de las secciones que se extraen. Con el texto completo la precisión medida en esa materia fue 100% sobre la muestra de validación. Para la materia civil y mercantil se asume el mismo comportamiento hasta que exista una medición propia.
+
+SEA ESTRICTO. Ante la menor duda responda NINGUNA. Se espera que la MAYORÍA de las sentencias den NINGUNA (en la materia de origen se midió que ~10% de las causas tienen un pasaje que califica; en civil la proporción puede ser algo mayor por la frecuencia con que se reprocha al actor no acompañar el certificado del Registro de la Propiedad, el título inscrito o el informe pericial de avalúo, pero el estándar de exigencia es el mismo).
+
+Las TRES condiciones, todas obligatorias:
+(1) el sujeto que no presentó es UNA PARTE del juicio (el actor / el demandado / el reconviniente / el tercerista / la compañía o aseguradora demandada, en su calidad de parte procesal), NO el juzgador ni un tercero ajeno al proceso;
+(2) el pasaje NOMBRA EL DOCUMENTO O LA PRUEBA QUE FALTÓ (la escritura pública inscrita, el certificado del Registro de la Propiedad o de gravámenes, el contrato escrito o la promesa, el pagaré o la letra original, el informe pericial de avalúo, la inspección judicial, la pericia grafotécnica, la póliza de seguro, el acta de la junta general, la posesión efectiva, el certificado de defunción, el protesto del cheque, los recibos de pago de los cánones). Si no se puede responder "¿qué documento o prueba faltó?" leyendo solo el pasaje, NO CUENTA;
+(3) el juzgador conecta esa ausencia con el resultado.
+
+CONTRAEJEMPLOS (ilustrativos) — ninguno cuenta, todos dan NINGUNA:
+- "no existe prueba alguna actuada en el proceso que permita establecer el incumplimiento alegado" → dice "prueba alguna", nunca nombra QUÉ documento o prueba. NINGUNA.
+- "al no haberse justificado el pago del precio" → "el pago" en abstracto, sin nombrar con qué documento debía probarse. NINGUNA.
+- "no permite a este juzgador tener la certeza de que el actor ha poseído el inmueble por más de quince años" → habla de la INCERTIDUMBRE del juzgador, no de una parte que omitió presentar algo. NINGUNA.
+- "el vendedor no entregó el inmueble libre de gravámenes" → conducta de la parte en la relación contractual, no prueba ausente en el juicio. NINGUNA.
+- "el juez de primera instancia no valoró el informe pericial de avalúo" → la prueba SÍ se presentó, el problema es de valoración. NINGUNA.
+- "el actor no ha presentado prueba idónea que sustente sus alegatos" → "prueba idónea" es una CATEGORÍA, no un documento. NINGUNA.
+- "no presentó documentación de respaldo" / "no aportó los documentos necesarios" / "no justificó con prueba documental" → "documentación"/"documentos"/"prueba documental" a secas, sin decir cuáles. NINGUNA.
+- "la demandada no desvirtuó la presunción de autenticidad del instrumento público" → afirmación genérica sobre carga de la prueba, sin nombrar documento. NINGUNA.
+- "el actor no demostró el daño moral que alega haber sufrido" → genérico ("no demostró"), no identifica ningún medio probatorio concreto. NINGUNA.
+
+PRUEBA DECISIVA antes de responder: intente completar la frase "el documento o la prueba que faltó fue: ___". Si solo puede escribir una categoría ("prueba", "documentación", "prueba idónea", "prueba documental", "sustento", "el pago") en vez de algo identificable (el certificado del Registro de la Propiedad, la escritura inscrita, el pagaré original, el informe pericial de avalúo, la inspección judicial, la pericia grafotécnica, la póliza, los recibos de los cánones de enero a junio de 2022, la posesión efectiva), entonces NO califica: responda NINGUNA.
+
+IMPORTANTE — basta con UNA mención identificable: si el pasaje mezcla lo genérico con lo concreto, SÍ califica y debe citarlo. Ejemplo (ilustrativo) que SÍ cuenta: "el actor no presentó prueba que acredite su dominio, y tampoco acompañó el certificado del Registro de la Propiedad ni la escritura pública inscrita a su favor" — arranca genérico ("prueba que acredite su dominio") pero nombra el certificado del Registro y la escritura inscrita. No lo descarte por la primera mitad.
+
+EJEMPLOS CORRECTOS (ilustrativos; sí cuentan):
+- "el actor no acompañó el certificado del Registro de la Propiedad que acredite que el inmueble se encuentra inscrito a su nombre, requisito indispensable para la procedencia de la acción reivindicatoria"
+- "la parte demandada no presentó el informe pericial de avalúo que anunció para desvirtuar el justo precio establecido por el perito del actor, de modo que ese valor se mantiene como no controvertido"
+- "el ejecutante no adjuntó el pagaré original sino una copia simple, por lo que no existe título ejecutivo que sirva de base a la acción"
+- "no obra del proceso la posesión efectiva de los bienes dejados por el causante, con la que los actores debían acreditar su calidad de herederos para proponer la petición de herencia"
+- "la aseguradora demandada no presentó la póliza con las condiciones particulares en las que afirma constar la exclusión de cobertura invocada, por lo que no se acredita la exclusión alegada"
+- "el arrendatario no presentó los recibos de pago de los cánones de enero a junio de 2022 que afirma haber cancelado, de modo que se tiene por cierta la mora alegada por el arrendador"
+- "el demandado no solicitó la inspección judicial ni el informe pericial topográfico que habrían permitido establecer que el predio que posee es distinto del descrito en la escritura del actor"
+
+Formato de salida obligatorio — UNA sola línea, sin texto antes ni después:
+
+EVIDENCIA_AUSENTE: <cita textual exacta del pasaje>
+
+o exactamente:
+
+EVIDENCIA_AUSENTE: NINGUNA

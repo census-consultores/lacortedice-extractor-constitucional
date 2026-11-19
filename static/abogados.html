@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Directorio de abogados — La Corte Dice (uso interno)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root { --tinta:#0A0A0A; --oro:#B49A3A; --oro-claro:#D9C77E; --crema:#F5F2E9; --papel:#FDFCF8;
+          --gris:#5A5750; --linea:#E3DDCB; --resalte:#F3E9BF;
+          --serif:"Fraunces", Georgia, serif; --sans:"Inter", Helvetica, Arial, sans-serif; --mono:"JetBrains Mono", Menlo, monospace; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:var(--sans); font-size:14.5px; line-height:1.5; color:var(--tinta); background:var(--crema); }
+  :focus-visible { outline:2px solid var(--oro); outline-offset:2px; }
+  header { background:var(--tinta); color:var(--papel); border-bottom:3px solid var(--oro); }
+  .cab { max-width:1240px; margin:0 auto; padding:20px; display:flex; align-items:baseline; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+  .marca { font-family:var(--serif); font-variant:small-caps; font-size:24px; font-weight:600; margin:0; }
+  .marca em { font-style:italic; font-weight:400; color:var(--oro-claro); font-variant:normal; }
+  .cab small { color:#B9B4A6; font-size:13px; }
+  .enlace { background:none; border:0; color:var(--oro-claro); font:inherit; font-size:13px; cursor:pointer; padding:0; text-decoration:underline; text-underline-offset:3px; }
+  main { max-width:1240px; margin:0 auto; padding:24px 20px 60px; }
+  #acceso { max-width:460px; margin:60px auto; background:var(--papel); border:1px solid var(--linea); border-top:3px solid var(--oro); padding:30px; }
+  #acceso h2 { font-family:var(--serif); font-weight:600; font-size:22px; margin:0 0 6px; }
+  p { text-align:justify; hyphens:auto; }
+  #acceso p { color:var(--gris); margin:0 0 18px; }
+  label { display:block; font-size:12.5px; color:var(--gris); margin-bottom:5px; }
+  input, select { width:100%; font:inherit; padding:10px 11px; border:1px solid #CFC9B8; border-radius:3px; background:var(--papel); color:var(--tinta); }
+  input:focus, select:focus { border-color:var(--oro); outline:none; box-shadow:0 0 0 3px rgba(180,154,58,.18); }
+  .boton { font:inherit; font-weight:600; padding:10px 20px; border-radius:3px; border:1px solid var(--tinta); background:var(--tinta); color:var(--oro-claro); cursor:pointer; white-space:nowrap; }
+  .boton.sec { background:transparent; color:var(--tinta); border-color:#CFC9B8; }
+  .boton:disabled { opacity:.5; cursor:default; }
+  #app { display:none; }
+  .cifras { display:grid; grid-template-columns:repeat(auto-fit, minmax(170px, 1fr)); gap:10px; margin-bottom:18px; }
+  .cifra { background:var(--papel); border:1px solid var(--linea); padding:14px 16px; }
+  .cifra b { display:block; font-family:var(--serif); font-size:26px; font-weight:600; line-height:1.1; }
+  .cifra span { color:var(--gris); font-size:12.5px; }
+  .caja { background:var(--papel); border:1px solid var(--linea); padding:18px 20px; display:grid; grid-template-columns:2fr 1fr 1fr auto auto; gap:12px; align-items:end; }
+  .check { display:flex; align-items:center; gap:7px; font-size:13.5px; color:var(--tinta); margin:0 0 10px; white-space:nowrap; }
+  .check input { width:auto; }
+  #estado { margin:20px 0 10px; color:var(--gris); display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; align-items:baseline; }
+  #estado strong { font-family:var(--serif); font-size:19px; color:var(--tinta); }
+  table { width:100%; border-collapse:collapse; background:var(--papel); border:1px solid var(--linea); }
+  th { text-align:left; font-size:12px; font-weight:600; color:var(--gris); text-transform:uppercase; letter-spacing:.04em; padding:10px 12px; border-bottom:2px solid var(--oro); background:#FAF7EE; }
+  td { padding:10px 12px; border-bottom:1px solid var(--linea); vertical-align:top; }
+  td.num { font-family:var(--mono); text-align:right; }
+  .nombre { font-weight:600; }
+  .correo { font-family:var(--mono); font-size:13px; }
+  .correo a { color:inherit; text-decoration-color:var(--oro); text-underline-offset:3px; }
+  .otros { color:var(--gris); font-size:12.5px; font-family:var(--mono); margin-top:3px; }
+  .etq { display:inline-block; font-size:12px; border:1px solid #CFC9B8; border-radius:3px; padding:1px 7px; margin:0 4px 4px 0; background:var(--papel); }
+  .sub { color:var(--gris); font-size:12.5px; }
+  .vacio, .error { padding:24px; text-align:center; background:var(--papel); border:1px dashed #CFC9B8; color:var(--gris); }
+  .error { border:0; border-left:3px solid #B4493A; background:#FBEFEA; color:#6A2A20; text-align:left; }
+  .pie { margin-top:16px; display:flex; gap:10px; justify-content:center; }
+  .nota { color:var(--gris); font-size:12.5px; margin-top:28px; }
+  @media (max-width:900px) { .caja { grid-template-columns:1fr 1fr; } .caja > :first-child { grid-column:1 / -1; }
+    table, thead, tbody, tr, td { display:block; } thead { display:none; } tr { border-bottom:1px solid var(--linea); padding:8px 0; } td { border:0; padding:4px 12px; } td.num { text-align:left; } }
+</style>
+</head>
+<body>
+<header><div class="cab">
+  <h1 class="marca">La Corte Dice <em>directorio de abogados</em></h1>
+  <div><small>Uso interno de Census · datos personales</small> <button type="button" class="enlace" id="cambiar" hidden>Cambiar clave</button></div>
+</div></header>
+<main>
+  <section id="acceso">
+    <h2>Clave de acceso</h2>
+    <p>Este directorio contiene datos personales de abogados tomados de las notificaciones de SATJE y es de uso interno. Escriba la clave del worker; quedará guardada solo en este navegador.</p>
+    <form id="f-acceso">
+      <label for="key">Clave</label>
+      <input id="key" type="password" autocomplete="off" required>
+      <div style="margin-top:14px;text-align:right"><button type="submit" class="boton">Entrar</button></div>
+    </form>
+  </section>
+
+  <section id="app">
+    <div class="cifras" id="cifras"></div>
+    <form id="f" class="caja">
+      <div><label for="q">Nombre o correo</label><input id="q" placeholder="Ej.: Vintimilla, candoabogados.com"></div>
+      <div><label for="materia">Materia</label><select id="materia"><option value="">Todas</option></select></div>
+      <div><label for="provincia">Provincia</label><select id="provincia"><option value="">Todas</option></select></div>
+      <label class="check"><input type="checkbox" id="con_correo" checked> Solo con correo</label>
+      <button type="submit" class="boton">Buscar</button>
+    </form>
+    <div id="estado"></div>
+    <div id="res"></div>
+    <div class="pie" id="pie"></div>
+    <p class="nota">Fuente: razones de notificación de SATJE (Función Judicial), consultadas por los extractores de La Corte Dice; no se incluye a jueces, secretarios, fiscales, defensores públicos ni correos de entidades públicas. El primer correo es el que contiene el nombre o apellido del abogado; los demás son otros correos que registró para recibir notificaciones (clientes, asistentes, su institución). El directorio se actualiza cada dos horas mientras avanzan las descargas, así que las cifras crecen. Por la Ley Orgánica de Protección de Datos Personales, no debe usarse para envíos masivos sin una base legal documentada.</p>
+  </section>
+</main>
+<script>
+const LIM = 50; let offset = 0;
+const $ = id => document.getElementById(id);
+const PROV = {"01":"Azuay","02":"Bolívar","03":"Cañar","04":"Carchi","05":"Cotopaxi","06":"Chimborazo","07":"El Oro","08":"Esmeraldas","09":"Guayas","10":"Imbabura","11":"Loja","12":"Los Ríos","13":"Manabí","14":"Morona Santiago","15":"Napo","16":"Pastaza","17":"Pichincha","18":"Tungurahua","19":"Zamora Chinchipe","20":"Galápagos","21":"Sucumbíos","22":"Orellana","23":"Santo Domingo","24":"Santa Elena"};
+const MAT = {civil:"Civil", laboral:"Laboral", administrativo:"Administrativo", penal:"Penal", tributario:"Tributario"};
+for (const [c, n] of Object.entries(PROV)) $('provincia').insertAdjacentHTML('beforeend', `<option value="${c}">${n}</option>`);
+const lee = () => { try { return localStorage.getItem('worker_key') || ''; } catch (e) { return ''; } };
+function mostrar(con) { $('acceso').style.display = con ? 'none' : ''; $('app').style.display = con ? 'block' : 'none'; $('cambiar').hidden = !con; if (con) cargar(); else $('key').focus(); }
+$('f-acceso').addEventListener('submit', e => { e.preventDefault(); try { localStorage.setItem('worker_key', $('key').value); } catch (e2) {} mostrar(true); });
+$('cambiar').addEventListener('click', () => { $('key').value = ''; mostrar(false); });
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const fmt = n => Number(n || 0).toLocaleString('es-EC');
+function params(extra) {
+  const p = new URLSearchParams(extra);
+  if ($('q').value.trim()) p.set('q', $('q').value.trim());
+  for (const k of ['materia', 'provincia']) if ($(k).value) p.set(k, $(k).value);
+  if ($('con_correo').checked) p.set('con_correo', 'true');
+  return p;
+}
+async function pedir(url) {
+  const r = await fetch(url, { headers: { 'x-worker-key': lee() } });
+  if (r.status === 401) { mostrar(false); throw new Error('La clave no es válida.'); }
+  if (r.status === 404) throw new Error('El directorio todavía no tiene datos: se llena en la primera actualización (cada dos horas).');
+  if (!r.ok) throw new Error('El servidor respondió con un error (' + r.status + '). Intente de nuevo en un momento.');
+  return r;
+}
+function cifras(res) {
+  let h = `<div class="cifra"><b>${fmt(res.abogados)}</b><span>abogados distintos</span></div>
+           <div class="cifra"><b>${fmt(res.con_correo)}</b><span>con al menos un correo</span></div>`;
+  for (const [m, d] of Object.entries(res.materias))
+    h += `<div class="cifra"><b>${fmt(d.abogados)}</b><span>${esc(MAT[m] || m)} · ${fmt(d.con_correo)} con correo<br>act. ${esc(d.actualizado)}</span></div>`;
+  $('cifras').innerHTML = h;
+  const sel = $('materia'), actual = sel.value;
+  sel.innerHTML = '<option value="">Todas</option>' + Object.keys(res.materias).map(m => `<option value="${m}">${esc(MAT[m] || m)}</option>`).join('');
+  sel.value = actual;
+}
+async function cargar() {
+  $('estado').textContent = 'Cargando…'; $('res').innerHTML = ''; $('pie').innerHTML = '';
+  let d;
+  try { d = await (await pedir('/abogados/datos?' + params({ limite: LIM, offset }))).json(); }
+  catch (e) { $('estado').textContent = ''; $('res').innerHTML = `<div class="error">${esc(e.message)}</div>`; return; }
+  cifras(d.resumen);
+  const hasta = Math.min(offset + LIM, d.total);
+  $('estado').innerHTML = `<span><strong>${fmt(d.total)}</strong> abogados${d.total ? ` · mostrando ${fmt(offset + 1)}–${fmt(hasta)}` : ''}</span>
+    <button type="button" class="boton sec" id="csv" ${d.total ? '' : 'disabled'}>Descargar CSV (${fmt(d.total)})</button>`;
+  $('csv') && $('csv').addEventListener('click', descargar);
+  if (!d.filas.length) { $('res').innerHTML = '<div class="vacio">No hay abogados con esos filtros.</div>'; return; }
+  $('res').innerHTML = `<table><thead><tr><th>Abogado</th><th>Correo</th><th>Materias</th><th style="text-align:right">Causas</th><th>Provincias</th><th>Años</th></tr></thead><tbody>${
+    d.filas.map(f => `<tr>
+      <td><div class="nombre">${esc(f.nombre)}</div>${f.matriculas.length ? `<div class="sub">Matrícula ${esc(f.matriculas.join(', '))}</div>` : ''}${f.telefonos.length ? `<div class="sub">Tel. ${esc(f.telefonos.join(', '))}</div>` : ''}</td>
+      <td><div class="correo">${f.correo ? `<a href="mailto:${esc(f.correo)}">${esc(f.correo)}</a>` : '<span class="sub">—</span>'}</div>${f.otros_correos.length ? `<div class="otros">${f.otros_correos.map(esc).join('<br>')}</div>` : ''}</td>
+      <td>${Object.entries(f.materias).map(([m, n]) => `<span class="etq">${esc(MAT[m] || m)} ${fmt(n)}</span>`).join('')}</td>
+      <td class="num">${fmt(f.n_causas)}</td>
+      <td class="sub">${f.provincias.map(p => esc(PROV[p] || p)).join(', ')}</td>
+      <td class="sub">${esc(f.anio_min || '')}${f.anio_max && f.anio_max !== f.anio_min ? '–' + esc(f.anio_max) : ''}</td></tr>`).join('')
+  }</tbody></table>`;
+  if (offset > 0) $('pie').insertAdjacentHTML('beforeend', '<button class="boton sec" id="ant">← Anteriores</button>');
+  if (hasta < d.total) $('pie').insertAdjacentHTML('beforeend', '<button class="boton sec" id="sig">Siguientes →</button>');
+  $('ant') && $('ant').addEventListener('click', () => { offset = Math.max(0, offset - LIM); cargar(); });
+  $('sig') && $('sig').addEventListener('click', () => { offset += LIM; cargar(); });
+}
+async function descargar() {
+  const b = $('csv'); b.disabled = true; b.textContent = 'Preparando…';
+  try {
+    const blob = await (await pedir('/abogados?' + params({}))).blob();
+    const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'directorio_abogados.csv'; a.click();
+    setTimeout(() => URL.revokeObjectURL(a.href), 5000);
+  } catch (e) { alert(e.message); }
+  b.disabled = false; b.textContent = 'Descargar CSV';
+}
+$('f').addEventListener('submit', e => { e.preventDefault(); offset = 0; cargar(); });
+mostrar(!!lee());
+</script>
+</body>
+</html>

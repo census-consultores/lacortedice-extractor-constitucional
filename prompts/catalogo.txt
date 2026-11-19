@@ -1,0 +1,482 @@
+Catalogo
+
+CIVIL
+Categoría 1
+1.	Principios y reglas generales del derecho civil
+Subcategorías 1
+1.	Autonomía de la voluntad
+2.	Buena fe
+3.	Fuerza obligatoria del contrato (pacta sunt servanda)
+4.	Abuso del derecho
+5.	Enriquecimiento sin causa
+6.	Irretroactividad de la ley
+7.	Seguridad jurídica
+8.	Tutela judicial efectiva y debido proceso civil
+9.	Interpretación de la ley civil
+10.	Costumbre
+11.	Renuncia de derechos
+12.	Principio de especialidad
+13.	Extraterritorialidad de la ley
+14.	Presunción legal
+15.	Plazos y términos legales
+16.	Derogación de la ley
+Categoría 2
+2.	Obligaciones
+Subcategorías 1
+1.	Fuentes de las obligaciones
+2.	Obligaciones de dar
+3.	Obligaciones de hacer
+4.	Obligaciones de no hacer
+5.	Obligaciones solidarias
+6.	Obligaciones divisibles e indivisibles
+7.	Obligaciones a plazo, modales y condicionales
+8.	Pago y solución de la obligación
+9.	Pago por consignación
+10.	Mora del deudor y del acreedor
+11.	Intereses convencionales, legales y de mora
+12.	Cláusula penal
+13.	Novación
+14.	Compensación
+15.	Remisión
+16.	Confusión
+17.	Imposibilidad de cumplimiento y pérdida de la cosa debida
+18.	Subrogación
+19.	Cláusula de aceleración y vencimiento anticipado
+20.	Obligaciones civiles y naturales
+21.	Obligaciones alternativas y facultativas
+22.	Beneficio de competencia
+Categoría 3
+3.	Contratos en general
+Subcategorías 1
+1.	Formación y perfeccionamiento del contrato
+2.	Capacidad
+3.	Consentimiento
+4.	Objeto
+5.	Causa
+6.	Formalidades y solemnidades
+7.	Interpretación del contrato
+8.	Efectos del contrato y efecto relativo
+9.	Cumplimiento forzoso de la obligación
+10.	Resolución del contrato por incumplimiento
+11.	Excepción de contrato no cumplido
+12.	Terminación unilateral y terminación por mutuo acuerdo
+13.	Arras y garantías contractuales
+14.	Responsabilidad civil contractual, indemnización de daños y perjuicios contractuales
+15.	Contratos de adhesión y cláusulas abusivas
+16.	Contratos innominados y atípicos
+17.	Caución
+18.	Clasificación y tipos de contratos
+19.	Estipulación en favor de terceros
+Categoría 4
+4.	Nulidad, rescisión y simulación
+Subcategorías 1
+1.	Nulidad absoluta
+2.	Nulidad relativa
+3.	Inexistencia del acto
+4.	Error como vicio del consentimiento
+5.	Fuerza como vicio del consentimiento
+6.	Dolo como vicio del consentimiento
+7.	Lesión enorme y rescisión
+8.	Simulación absoluta y relativa
+9.	Acción pauliana o revocatoria
+10.	Efectos de la nulidad y restituciones mutuas
+11.	Prescripción de la acción de nulidad
+12.	Nulidad de escritura pública e instrumentos públicos
+13.	Nulidad por omisión de solemnidades de la Ley Notarial
+14.	Ratificación
+Categoría 5
+5.	Compraventa y promesa de compraventa
+Subcategorías 1
+1.	Compraventa de bienes inmuebles
+2.	Compraventa de bienes muebles y vehículos
+3.	Promesa de compraventa
+4.	Precio y pago del precio
+5.	Entrega y tradición de la cosa vendida
+6.	Saneamiento por evicción
+7.	Vicios redhibitorios
+8.	Pacto de retroventa
+9.	Reserva de dominio
+10.	Lesión enorme en la compraventa de inmuebles
+11.	Resolución de la compraventa por falta de pago del precio
+12.	Permuta
+13.	Venta de cosa ajena
+14.	Compraventa de derechos y acciones
+15.	Cesión de derechos y de créditos
+16.	Cesión de derechos litigiosos
+17.	Venta de bienes proindivisos
+18.	Venta a prueba
+19.	Pacto comisorio
+Categoría 6
+6.	Arrendamiento e inquilinato
+Subcategorías 1
+1.	Arrendamiento civil de inmuebles
+2.	Arrendamiento de locales comerciales
+3.	Contrato de inquilinato de vivienda
+4.	Pago de cánones de arrendamiento
+5.	Desahucio y terminación del contrato de inquilinato
+6.	Causales de terminación del arrendamiento
+7.	Devolución y entrega del inmueble arrendado
+8.	Mejoras y reparaciones
+9.	Garantías y depósitos del inquilinato
+10.	Arrendamiento de bienes muebles
+11.	Arrendamiento mercantil (leasing)
+12.	Subarrendamiento y cesión del arrendamiento
+13.	Arrendamiento de predios rústicos
+14.	Arrendamiento de transporte
+Categoría 7
+7.	Mutuo, préstamo y garantías
+Subcategorías 1
+1.	Mutuo o préstamo de consumo
+2.	Intereses y usura
+3.	Fianza
+4.	Prenda ordinaria
+5.	Prenda comercial
+6.	Prenda agrícola
+7.	Prenda industrial
+8.	Hipoteca
+9.	Ejecución de garantías reales
+10.	Cancelación y levantamiento de hipoteca
+11.	Cancelación y levantamiento de prenda
+12.	Anticresis
+13.	Garantes y avalistas
+14.	Crédito con garantía de vehículos
+15.	Beneficio de excusión
+16.	Subfiador y cofiador
+17.	Acción de reembolso del fiador
+18.	Restitución de la prenda
+Categoría 8
+8.	Comodato, depósito y otros contratos
+Subcategorías 1
+1.	Comodato o préstamo de uso
+2.	Depósito y secuestro
+3.	Contrato de obra y construcción
+4.	Prestación de servicios civiles y honorarios profesionales
+5.	Transacción extrajudicial (contrato: validez, nulidad, alcance)
+6.	Donación
+7.	Contratos de corretaje e intermediación
+8.	Contratos de hospedaje, educación y servicios
+9.	Renta vitalicia
+Categoría 9
+9.	Responsabilidad civil extracontractual
+Subcategorías 1
+1.	Delito y cuasidelito civil
+2.	Culpa y negligencia
+3.	Daño y su prueba
+4.	Nexo causal
+5.	Responsabilidad por el hecho ajeno
+6.	Responsabilidad por el hecho de las cosas y de los animales
+7.	Responsabilidad por accidentes de tránsito
+8.	Responsabilidad profesional y médica
+9.	Responsabilidad objetiva y actividades riesgosas
+10.	Daño emergente
+11.	Lucro cesante
+12.	Cuantificación de la indemnización
+13.	Eximentes: caso fortuito, fuerza mayor y culpa de la víctima
+14.	Prescripción de la acción de responsabilidad extracontractual
+Categoría 10
+10.	Daño moral
+Subcategorías 1
+1.	Procedencia del daño moral
+2.	Legitimación activa y pasiva en el daño moral
+3.	Daño moral por imputaciones injuriosas o denuncias infundadas
+4.	Daño moral por incumplimiento contractual
+5.	Daño moral por muerte o lesiones
+6.	Daño moral de personas jurídicas
+7.	Prueba del daño moral
+8.	Cuantificación de la reparación por daño moral
+9.	Daño moral por sufrimientos psíquicos o físicos
+Categoría 11
+11.	Propiedad y dominio
+Subcategorías 1
+1.	Modos de adquirir el dominio
+2.	Tradición e inscripción en el Registro de la Propiedad
+3.	Acción reivindicatoria o de dominio
+4.	Requisitos de la reivindicación
+5.	Prueba del dominio y títulos
+6.	Nulidad o cancelación de inscripción registral
+7.	Accesión
+8.	Ocupación y hallazgo
+9.	Bienes muebles e inmuebles
+10.	Bienes nacionales y de uso público
+11.	Acción de dominio sobre vehículos y bienes muebles
+12.	Prestaciones mutuas (frutos y mejoras) en la reivindicación
+13.	Nuda propiedad
+Categoría 12
+12.	Posesión y prescripción adquisitiva
+Subcategorías 1
+1.	Posesión y sus elementos
+2.	Mera tenencia
+3.	Prescripción adquisitiva ordinaria de dominio
+4.	Prescripción adquisitiva extraordinaria de dominio
+5.	Justo título y buena fe
+6.	Interrupción y suspensión de la prescripción adquisitiva
+7.	Agregación de posesiones
+8.	Prescripción adquisitiva contra el copropietario o el heredero
+9.	Prescripción adquisitiva de bienes municipales o del Estado
+10.	Amparo posesorio y acciones posesorias
+11.	Despojo violento
+12.	Denuncia de obra nueva y obra ruinosa
+13.	Prueba de la posesión
+14.	Posesión regular y posesión irregular
+15.	Posesión viciosa
+16.	Modos de adquirir y perder la posesión
+17.	Requisitos de la prescripción adquisitiva de dominio
+18.	Identificación del bien en la prescripción adquisitiva
+19.	Cumplimiento del plazo de la prescripción adquisitiva
+20.	Posesión del inmueble en la prescripción adquisitiva
+Categoría 13
+13.	Copropiedad, partición y propiedad horizontal
+Subcategorías 1
+1.	Comunidad y copropiedad
+2.	Partición de bienes comunes
+3.	Partición de bienes de la sociedad conyugal disuelta
+4.	Deslinde y amojonamiento
+5.	Medianería
+6.	Propiedad horizontal: régimen y reglamento
+7.	Expensas y cuotas de administración
+8.	Asamblea de copropietarios y administrador
+9.	Adjudicación y venta en pública subasta de bienes indivisos
+Categoría 14
+14.	Servidumbres y limitaciones al dominio
+Subcategorías 1
+1.	Servidumbre de tránsito
+2.	Servidumbre de acueducto y aguas
+3.	Servidumbres legales
+4.	Servidumbres voluntarias
+5.	Constitución, ejercicio y extinción de servidumbres
+6.	Usufructo
+7.	Uso y habitación
+8.	Patrimonio familiar
+9.	Prohibiciones de enajenar y limitaciones convencionales
+10.	Servidumbre de luz
+11.	Fideicomiso civil y propiedad fiduciaria
+Categoría 15
+15.	Sucesiones
+Subcategorías 1
+1.	Sucesión intestada
+2.	Sucesión testamentaria
+3.	Nulidad de testamento
+4.	Reforma de testamento y legítimas
+5.	Petición de herencia
+6.	Posesión efectiva
+7.	Inventario y avalúo de bienes sucesorios
+8.	Partición hereditaria
+9.	Aceptación y repudiación de la herencia
+10.	Deudas hereditarias y responsabilidad de los herederos
+11.	Legados y asignaciones
+12.	Colación y acervo imaginario
+13.	Indignidad y desheredamiento
+14.	Albaceas y administración de la sucesión
+15.	Delación de la herencia
+16.	Sucesión por derecho de representación, derecho de transmisión y derecho de acrecer
+17.	Porción conyugal y cuarta de mejoras
+18.	Donaciones por causa de muerte
+19.	Revocación del testamento
+20.	Herencia yacente
+21.	Saneamiento por evicción en la partición hereditaria
+22.	Nulidad y rescisión de la partición hereditaria
+23.	Beneficio de separación
+Categoría 16
+16.	Títulos valores y procedimiento ejecutivo
+Subcategorías 1
+1.	Pagaré a la orden
+2.	Letra de cambio
+3.	Cheque
+4.	Factura comercial y otros títulos ejecutivos
+5.	Requisitos del título ejecutivo
+6.	Obligación clara
+7.	Obligación determinada
+8.	Obligación líquida
+9.	Obligación pura
+10.	Obligación de plazo vencido
+11.	Excepciones en el procedimiento ejecutivo
+12.	Pago y abonos parciales
+13.	Falsedad y alteración del título
+14.	Prescripción de la acción cambiaria y ejecutiva
+15.	Endoso, aval y solidaridad cambiaria
+16.	Protesto y presentación al pago
+17.	Auto de pago y oposición
+18.	Embargo, avalúo y remate
+19.	Comisión, intereses y gastos reclamables en títulos valores (art. 166 C. Comercio)
+20.	Actas transaccionales sometidas al procedimiento de ejecución o al ejecutivo
+21.	Nulidades procesales en la ejecución
+22.	Nulidad del remate
+23.	Requisitos para la ejecución del contrato de prenda
+24.	Requisitos para la ejecución del contrato de hipoteca
+Categoría 17
+17.	Procedimiento monitorio
+Subcategorías 1
+1.	Procedencia del procedimiento monitorio
+2.	Requisitos y documentos de la deuda
+3.	Cuantía del monitorio
+4.	Oposición al requerimiento de pago
+5.	Cobro de expensas de propiedad horizontal por vía monitoria
+6.	Cobro de cánones de arrendamiento por vía monitoria
+Categoría 18
+18.	Derecho societario
+Subcategorías 1
+1.	Constitución y nulidad de la compañía
+2.	Impugnación de resoluciones de junta general
+3.	Nulidad de resoluciones de junta general
+4.	Disolución y liquidación de compañías
+5.	Exclusión y separación de socios
+6.	Cesión de participaciones y transferencia de acciones
+7.	Derechos de los socios y accionistas
+8.	Responsabilidad de administradores y representantes legales
+9.	Inoponibilidad de la personalidad jurídica (velo societario)
+10.	Sociedades por acciones simplificadas
+11.	Aumento y reducción de capital
+12.	Reparto de utilidades y dividendos
+13.	Cuentas en participación y asociaciones
+14.	Superintendencia de Compañías, Valores y Seguros: resoluciones
+Categoría 19
+19.	Contratos y operaciones mercantiles
+Subcategorías 1
+1.	Compraventa mercantil
+2.	Contrato de seguro
+3.	Siniestro, cobertura y pago de la indemnización del seguro
+4.	Contrato de transporte terrestre, marítimo y aéreo
+5.	Contratos de distribución, agencia y franquicia
+6.	Cuenta corriente, depósitos y otros contratos bancarios (excepto tarjetas de crédito)
+7.	Tarjetas de crédito (contrato de emisión y uso, estados de cuenta) y créditos de consumo
+8.	Fideicomiso mercantil y encargo fiduciario
+9.	Factoring y descuento
+10.	Contratos de suministro y prestación de servicios mercantiles
+11.	Comisión mercantil
+12.	Propiedad intelectual e industrial en sede civil
+13.	Comercio electrónico y mensajes de datos
+Categoría 20
+20.	Insolvencia y concurso de acreedores
+Subcategorías 1
+1.	Presunción de insolvencia
+2.	Concurso de acreedores voluntario y necesario
+3.	Concurso preventivo
+4.	Calificación de la insolvencia
+5.	Rehabilitación del fallido
+6.	Prelación de créditos
+7.	Efectos de la declaratoria de insolvencia
+8.	Cesión de bienes
+Categoría 21
+21.	Medidas cautelares y tercerías
+Subcategorías 1
+1.	Secuestro
+2.	Retención
+3.	Prohibición de enajenar
+4.	Requisitos y caución de las medidas cautelares
+5.	Levantamiento y cancelación de medidas cautelares
+6.	Tercería excluyente de dominio
+7.	Tercería coadyuvante
+8.	Embargo de bienes de terceros
+9.	Remate y adjudicación
+Categoría 22
+22.	Prescripción extintiva y caducidad
+Subcategorías 1
+1.	Prescripción extintiva de acciones ordinarias
+2.	Prescripción extintiva de acciones ejecutivas
+3.	Prescripciones de corto tiempo
+4.	Interrupción de la prescripción extintiva
+5.	Suspensión de la prescripción extintiva
+6.	Renuncia de la prescripción
+7.	Caducidad de la acción
+8.	Prescripción alegada como excepción y declaración judicial
+9.	Prescripción de las acciones derivadas del contrato de seguro
+Categoría 23
+23.	Prueba en materia civil
+Subcategorías 1
+1.	Carga de la prueba
+2.	Instrumentos públicos y escrituras públicas
+3.	Instrumentos privados y reconocimiento de firma
+4.	Impugnación y falsedad de documentos
+5.	Prueba pericial de avalúo
+6.	Prueba pericial contable y liquidación
+7.	Prueba pericial grafotécnica y documentológica
+8.	Inspección judicial
+9.	Prueba testimonial
+10.	Declaración de parte
+11.	Prueba nueva y prueba no anunciada
+12.	Valoración de la prueba y sana crítica
+13.	Prueba electrónica y mensajes de datos
+14.	Exhibición de documentos
+15.	Certificados registrales como prueba
+16.	Valor probatorio de estados de cuenta, liquidaciones y certificaciones de entidades financieras (art. 225 COMF)
+Categoría 24
+24.	Procedimiento civil
+Subcategorías 1
+1.	Procedimiento ordinario
+2.	Procedimiento sumario
+3.	Procedimiento voluntario
+4.	Títulos que se someten al procedimiento de ejecución: sentencias, actas de mediación y transacciones (arts. 362 y ss. COGEP)
+5.	Competencia por materia, territorio y cuantía
+6.	Legitimación activa y pasiva
+7.	Personería y representación procesal
+8.	Litisconsorcio y herederos presuntos y desconocidos
+9.	Citación y comparecencia
+10.	Rebeldía y falta de contestación o de excepciones (arts. 157 y 352 COGEP)
+11.	Reconvención
+12.	Excepciones previas
+13.	Audiencia preliminar y de juicio
+14.	Nulidad procesal
+15.	Abandono del proceso
+16.	Desistimiento
+17.	Conciliación y mediación
+18.	Transacción judicial y aprobación de acuerdos que terminan el proceso (art. 235 COGEP)
+19.	Cosa juzgada
+20.	Litispendencia
+21.	Acumulación de pretensiones y de procesos
+22.	Ejecución de la sentencia
+23.	Costas y honorarios
+24.	Recurso de apelación
+25.	Recurso de casación
+26.	Motivación de la sentencia
+27.	Congruencia de la sentencia
+28.	Arbitraje y cláusula compromisoria
+29.	Procedimiento ejecutivo (arts. 347 y ss. COGEP)
+Categoría 25
+25.	Personas en general
+Subcategorías 1
+1.	Domicilio y residencia
+2.	Nacionalidad
+3.	Nacimiento
+4.	Muerte
+5.	Presunción de muerte, posesión provisional y posesión definitiva
+6.	Matrimonio
+7.	Acción de nulidad del matrimonio y causas de nulidad
+8.	Terminación del matrimonio y divorcio
+9.	Sociedad conyugal y capitulaciones matrimoniales
+10.	Disolución de la sociedad conyugal y gananciales
+11.	Unión de hecho y unión de hecho post mortem
+12.	Estado civil y prueba del estado civil
+13.	Tutelas y curadurías en general
+14.	Curador dativo
+15.	Curaduría de bienes
+16.	Personas jurídicas y representación legal
+Categoría 26
+26.	Mandato
+Subcategorías 1
+1.	Mandato y poder
+2.	Tipos de mandato
+3.	Constitución del mandato
+4.	Administración del mandato
+5.	Responsabilidad del mandatario
+6.	Obligaciones del mandante
+7.	Terminación del mandato
+8.	Rendición de cuentas
+Categoría 27
+27.	Sociedad civil
+Subcategorías 1
+1.	Sociedad de hecho
+2.	Tipos de sociedad
+3.	Beneficios y pérdidas
+4.	Administración de la sociedad
+5.	Aportes de los socios
+6.	Disolución de la sociedad
+7.	Renuncia del socio
+Categoría 28
+28.	Cuasicontratos
+Subcategorías 1
+1.	Agencia oficiosa
+2.	Pago de lo no debido
+Categoría 29
+29.	Arbitraje
+Subcategorías 1
+1.	Causales de nulidad del laudo arbitral

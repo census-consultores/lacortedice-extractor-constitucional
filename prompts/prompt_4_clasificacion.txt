@@ -1,0 +1,104 @@
+CLASIFICACIÓN DEL OBJETO DE CONTROVERSIA – CATEGORIZACIÓN JURÍDICO-CIVIL Y MERCANTIL
+Objetivo:
+Identificar exclusivamente las categorías o subcategorías que corresponden al objeto de controversia central discutido en la sentencia civil o mercantil.
+La clasificación debe basarse únicamente en lo que se discute de fondo en el proceso judicial, sin agregar categorías secundarias, irrelevantes o no mencionadas expresamente en el planteamiento de la controversia.
+La clasificación deberá realizarse utilizando exclusivamente el catálogo proporcionado.
+──────────────────────────────────────────────
+FASE PREVIA OBLIGATORIA: IDENTIFICACIÓN DEL CATÁLOGO APLICABLE
+Todas las sentencias que se procesan en este sistema pertenecen a la materia CIVIL (derecho civil y mercantil del Ecuador: controversias de derecho privado patrimonial entre personas naturales o jurídicas, sustanciadas ante las Unidades Judiciales Civiles, Civiles y Mercantiles o Multicompetentes, las Salas de lo Civil y Mercantil de las Cortes Provinciales y la Sala de lo Civil y Mercantil de la Corte Nacional de Justicia). Existe un solo bloque de catálogo, denominado CIVIL. La línea "Catálogo Aplicable:" del formato de salida debe ir SIEMPRE seguida, en una sola línea, de la palabra: CIVIL.
+No existe regla residual ni posibilidad de elegir otro bloque. Aunque la sentencia mencione instituciones de otras materias (por ejemplo, la disolución de la sociedad conyugal como antecedente de una partición, una relación laboral como origen de una deuda, un accidente de tránsito que también fue conocido en sede penal, un acto administrativo municipal relacionado con el inmueble, o una obligación tributaria del vendedor), la clasificación se hace siempre dentro del catálogo CIVIL, eligiendo la categoría que refleje cómo esa cuestión incide en la controversia civil o mercantil (por ejemplo, "Copropiedad, partición y propiedad horizontal – Partición de bienes de la sociedad conyugal disuelta" o "Responsabilidad civil extracontractual – Responsabilidad por accidentes de tránsito"). Las materias laboral, penal, contencioso administrativa y contencioso tributaria NO forman parte de este catálogo: si aparecen, se tratan como contexto y no como categoría. Las instituciones del derecho de personas (domicilio, estado civil, matrimonio, sociedad conyugal, unión de hecho, curadurías, personas jurídicas) tienen su propia categoría, "Personas en general", que se usa solo cuando la sentencia civil resuelve esa institución (por ejemplo, la disolución de la sociedad conyugal o la designación de un curador); las causas de alimentos, tenencia y visitas de niños y adolescentes no se clasifican aquí.
+──────────────────────────────────────────────
+CRITERIOS DE CLASIFICACIÓN
+1.	Analiza exclusivamente el objeto de controversia central conforme al texto de la sentencia.
+2.	El análisis debe centrarse principalmente en:
+• Objeto de la demanda y, si existe, de la reconvención.
+• Objeto de la controversia o puntos controvertidos fijados en la audiencia preliminar o única.
+• Problema jurídico.
+• Pretensión principal de la parte actora.
+• Excepciones que decidieron el resultado.
+• Cuestiones a resolver identificadas por el juzgador.
+3.	Solo deben clasificarse aquellas categorías que estén directamente relacionadas con la problemática sustantiva resuelta por el juzgador.
+4.	Si el objeto de controversia está relacionado con más de una categoría principal, lo normal es de una a tres categorías, siempre que todas formen parte del núcleo de la controversia. Usa una cuarta solo si el juez resolvió con análisis propio una cuarta cuestión distinta. Nunca completes hasta cuatro.
+5.	No se permite clasificar categorías por:
+• Menciones incidentales.
+• Antecedentes.
+• Hechos secundarios.
+• Pruebas.
+• Normas citadas de manera accesoria.
+• Argumentos subsidiarios.
+• Referencias doctrinarias.
+• Jurisprudencia citada.
+6.	La clasificación debe respetar exactamente la denominación contenida en el catálogo.
+7.	No inventes categorías.
+8.	No reformules categorías.
+9.	No combines categorías.
+10.	No sintetices categorías.
+──────────────────────────────────────────────
+REGLA ESPECIAL PARA DEMANDAS CON MÚLTIPLES PRETENSIONES Y RUBROS
+En muchas demandas civiles se acumulan varias pretensiones (por ejemplo, resolución del contrato más daños y perjuicios más daño moral; cobro de capital más intereses más cláusula penal; reivindicación más frutos y mejoras). NO se clasificará automáticamente cada pretensión o rubro como una categoría. Primero deberá identificarse cuál es la cuestión jurídica de fondo que determinó el resultado.
+Ejemplos:
+• Si la controversia giró sobre si el demandado incumplió el contrato y, como consecuencia, se concedieron o negaron la resolución y la indemnización → clasificar principalmente en Contratos en general (subcategoría específica: Resolución del contrato por incumplimiento), y solo agregar Responsabilidad civil extracontractual o Daño moral si hubo un debate propio sobre esos rubros.
+• Si el único punto discutido fue si el actor poseyó el inmueble por el tiempo y con las características exigidas → clasificar en Posesión y prescripción adquisitiva (subcategoría específica), no en Propiedad y dominio.
+• Si se discutió la validez del pagaré o la procedencia de las excepciones en un juicio ejecutivo → clasificar en Títulos valores y procedimiento ejecutivo (subcategoría específica), no en Obligaciones.
+• Si se discutió el pago de cánones y la terminación de un contrato de inquilinato → clasificar en Arrendamiento e inquilinato (subcategoría específica), no en Contratos en general.
+• Si se discute la lesión enorme en una compraventa de inmueble → clasificar en Compraventa y promesa de compraventa – Lesión enorme en la compraventa de inmuebles, o en Nulidad, rescisión y simulación – Lesión enorme y rescisión si el debate fue sobre la institución en general; nunca en ambas por el mismo hecho.
+• Si se discute el daño moral derivado de una denuncia penal infundada → clasificar en Daño moral (subcategoría específica), no en Responsabilidad civil extracontractual, salvo que el debate central haya sido la culpa o el nexo causal.
+• Si se discute la impugnación de una resolución de junta general → clasificar en Derecho societario (subcategoría específica).
+• Si se discute el pago de la indemnización de un seguro → clasificar en Contratos y operaciones mercantiles – Siniestro, cobertura y pago de la indemnización del seguro.
+Siempre deberá prevalecer la cuestión jurídica específica sobre la enumeración de pretensiones o rubros.
+──────────────────────────────────────────────
+REGLA ESPECIAL PARA LAS CATEGORÍAS PROCESALES Y DE PRUEBA
+Las categorías "Procedimiento civil" y "Prueba en materia civil" únicamente podrán utilizarse cuando el debate jurídico principal recaiga directamente sobre una cuestión procesal o probatoria que haya decidido el caso: por ejemplo, abandono, nulidad procesal, cosa juzgada, litispendencia, competencia, falta de legitimación o personería, carga de la prueba, impugnación o falsedad de un documento como prueba decisiva, o la motivación o congruencia de la sentencia (en apelación o casación). La prescripción extintiva y la caducidad tienen categoría propia.
+No utilizar esas categorías por el solo hecho de que la sentencia valore pruebas o se tramite en procedimiento ordinario o sumario: toda sentencia civil valora pruebas y todas se tramitan por algún procedimiento. Solo cuando la cuestión probatoria o procesal fue el eje del resultado.
+• Marca una subcategoría de "Prueba en materia civil" solo si el juez decide una cuestión probatoria discutida (impugnación, reconocimiento de firma, valor de un documento, carga de la prueba); no por la sola existencia de un documento. Ejemplo: si la demandada no compareció y nadie impugnó el pagaré, no marques "Instrumentos privados y reconocimiento de firma".
+• Si el juez rechaza la demanda porque el actor no cumplió la carga de la prueba (art. 169 COGEP: "debe probar… lo cual no ha sido probado"), marca "Prueba en materia civil – Carga de la prueba", además de la subcategoría sobre el valor del documento si corresponde.
+• Si el proceso terminó por transacción, conciliación, desistimiento o abandono sin pronunciamiento sobre el fondo, marca solo la subcategoría procesal de "Procedimiento civil" que corresponda (por ejemplo, "Transacción judicial y aprobación de acuerdos que terminan el proceso (art. 235 COGEP)"); no marques la categoría del contrato de origen (por ejemplo, tarjetas de crédito) ni "Comodato, depósito y otros contratos – Transacción extrajudicial (contrato: validez, nulidad, alcance)", salvo que se discuta la validez de la transacción.
+Del mismo modo, la categoría "Principios y reglas generales del derecho civil" solo se usa cuando un principio (buena fe, autonomía de la voluntad, abuso del derecho, enriquecimiento sin causa) fue invocado y aplicado como fundamento autónomo y determinante de la decisión, no cuando se menciona de paso.
+La categoría "Medidas cautelares y tercerías" se usa cuando la sentencia resuelve una tercería o una controversia sobre la procedencia, mantenimiento o levantamiento de una medida cautelar, no cuando la medida solo se menciona como antecedente del proceso principal.
+──────────────────────────────────────────────
+REGLAS ESPECÍFICAS PARA ERRORES FRECUENTES
+• Cada subcategoría debe ir bajo la categoría a la que pertenece en el catálogo. Por ejemplo, "Títulos que se someten al procedimiento de ejecución: sentencias, actas de mediación y transacciones (arts. 362 y ss. COGEP)" pertenece a la categoría 24 (Procedimiento civil); nunca la cuelgues de la categoría 16.
+• Para los juicios ejecutivos (pagaré, letra de cambio, cheque u otro título ejecutivo) no uses "Títulos que se someten al procedimiento de ejecución: sentencias, actas de mediación y transacciones (arts. 362 y ss. COGEP)", que se refiere a la fase de ejecución; si corresponde una subcategoría procesal, usa "Procedimiento ejecutivo (arts. 347 y ss. COGEP)".
+• No clasifiques en "Prescripción extintiva y caducidad" ni en "Títulos valores y procedimiento ejecutivo – Prescripción de la acción cambiaria y ejecutiva" si ninguna parte alegó la prescripción o la caducidad ni el juez la analizó expresamente.
+• Los cobros de tarjetas de crédito van en "Contratos y operaciones mercantiles – Tarjetas de crédito (contrato de emisión y uso, estados de cuenta) y créditos de consumo", no en "Cuenta corriente, depósitos y otros contratos bancarios (excepto tarjetas de crédito)".
+• Si la demanda se denominó "ejecutiva" pero se tramitó en procedimiento ordinario (audiencia preliminar y de juicio, art. 289 COGEP), no uses ninguna subcategoría del procedimiento ejecutivo ni de la categoría 16 sobre títulos ejecutivos: un contrato de tarjeta de crédito con estados de cuenta no es título ejecutivo.
+• Si hubo reconvención y el juez la resolvió, clasifica también la institución que discute la reconvención (por ejemplo, Daño moral – Prueba del daño moral) y añade "Procedimiento civil – Reconvención".
+• Si se discutió si el poseedor es de buena o de mala fe (prestaciones mutuas, frutos y mejoras), considera "Posesión y prescripción adquisitiva – Justo título y buena fe" y "Propiedad y dominio – Prestaciones mutuas (frutos y mejoras) en la reivindicación".
+• En apelación y casación, si la decisión dependió de un medio de prueba concreto (por ejemplo, la inspección judicial, la prueba pericial o la negativa de prueba nueva), marca la subcategoría de "Prueba en materia civil" de ese medio.
+• Las rendiciones de cuentas y el mandato van en la categoría "Mandato"; la sociedad civil o de hecho, en "Sociedad civil"; la agencia oficiosa y el pago de lo no debido, en "Cuasicontratos"; la nulidad de laudos arbitrales, en "Arbitraje".
+• Si el demandado no compareció, no contestó o no propuso excepciones y el juez sentenció por esa razón, considera "Procedimiento civil – Rebeldía y falta de contestación o de excepciones (arts. 157 y 352 COGEP)".
+──────────────────────────────────────────────
+ORDEN OBLIGATORIO DE ANÁLISIS
+1.	Confirmar que la sentencia es de materia CIVIL (siempre lo es en este sistema).
+2.	Identificar la institución jurídica civil o mercantil específica discutida (contrato concreto, responsabilidad civil, daño moral, nulidad, dominio, posesión, sucesión, título valor, sociedad, seguro, insolvencia, tercería, prescripción, etc.).
+3.	Buscar la subcategoría más específica disponible dentro del catálogo.
+4.	Solo si no existe una categoría específica aplicable, utilizar una categoría general.
+5.	Verificar que la clasificación refleje la controversia jurídica de fondo y no la simple enumeración de pretensiones ni el nombre del procedimiento.
+──────────────────────────────────────────────
+VERIFICACIÓN FINAL (obligatoria)
+Para cada categoría, identifica el considerando en que el juez la resuelve. Si no lo encuentras, elimínala. Elimina siempre la categoría de una cuestión que ninguna parte alegó y que el juez no analizó. Clasifica solo el núcleo de la controversia: lo normal es de una a tres categorías.
+──────────────────────────────────────────────
+FORMATO DE SALIDA
+CLASIFICACIÓN DE LA SENTENCIA EN BASE A LA PROBLEMÁTICA
+Problemática Principal:
+[Describir brevemente el problema jurídico central discutido en la sentencia].
+Catálogo Aplicable:
+CIVIL
+Categoría [número de la categoría en el catálogo]: [Nombre exacto de la categoría]
+• Subcategoría: [Nombre exacto de una subcategoría de ESA categoría]
+[Repetir únicamente si existe otra categoría directamente vinculada con la controversia principal.]
+
+Reglas del formato (obligatorias):
+• El número es el que la categoría tiene en el catálogo, no el orden en que la listas.
+• Número y nombre van en la MISMA línea; la subcategoría también, a continuación de "• Subcategoría:".
+• La subcategoría debe ser una de las subcategorías listadas bajo esa categoría; nunca repitas el nombre de la categoría como subcategoría.
+──────────────────────────────────────────────
+CONSIDERACIONES FINALES
+• Clasifica únicamente la materia efectivamente discutida y resuelta por el juzgador.
+• No clasifiques por el simple hecho de que se reclame un rubro o se acumule una pretensión si no fue objeto de debate propio.
+• No clasifiques por el nombre del procedimiento ni por la denominación que las partes den a la acción.
+• Prioriza siempre la categoría más específica disponible dentro del catálogo.
+• La línea "Catálogo Aplicable:" va siempre seguida de la palabra CIVIL, sin ningún otro texto.
+• La clasificación debe reflejar el verdadero objeto de controversia y no aspectos accesorios del proceso.
+• En caso de duda entre una categoría general y una específica, siempre prevalecerá la categoría específica.
+• Entrega solo el resultado final en el FORMATO DE SALIDA: haz la verificación final en silencio y no escribas notas, categorías descartadas, verificaciones ni bloques repetidos.

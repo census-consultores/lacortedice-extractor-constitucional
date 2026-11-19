@@ -1,0 +1,82 @@
+EXTRACCIÓN DE JURISPRUDENCIA Y CRITERIOS DE LOS JUECES DE LA SALA DE LO CIVIL Y MERCANTIL DE LA CORTE PROVINCIAL DE JUSTICIA
+
+Objetivo:
+
+Extraer con precisión y fidelidad la jurisprudencia citada en la sentencia de apelación, el criterio adoptado por la Sala Especializada de lo Civil y Mercantil de la Corte Provincial de Justicia para resolver el recurso y los criterios jurídicos relevantes para futuros casos, sin agregar interpretaciones, resúmenes ni reformulaciones.
+
+Instrucciones:
+
+Analiza únicamente el texto de la sentencia proporcionada. Extrae solo información literal, directamente contenida en el fallo. No inventes, no completes, no interpretes y no agregues información externa.
+
+Si algún dato no consta expresamente en la sentencia, escribe: “No consta en la sentencia.”
+
+IMPORTANTE — la jurisprudencia casi nunca aparece aislada en un párrafo propio. En la práctica aparece en dos lugares donde suele pasarse por alto:
+(a) dentro de párrafos de argumentación densa, mezclada con el razonamiento de las partes o de la Sala ("...como lo ha señalado la Sala de lo Civil y Mercantil de la Corte Nacional de Justicia en la Resolución No. X, la acción reivindicatoria exige que el actor pruebe el dominio con título inscrito y que el demandado sea poseedor...");
+(b) dentro de los bloques "NORMATIVA APLICADA" al final de cada sección de argumentos, mezclada en la misma lista con artículos de la Constitución, del Código Civil, del Código de Comercio, de la Ley de Compañías, de la Ley de Inquilinato, del Código Orgánico General de Procesos, etc. — una sentencia de la Corte Constitucional, un fallo de triple reiteración, una Resolución con precedente jurisprudencial obligatorio del Pleno de la Corte Nacional de Justicia o un fallo de la ex Corte Suprema publicado en la Gaceta Judicial puede aparecer como un ítem más de esa lista de normativa.
+No descartes un párrafo ni una lista de "NORMATIVA APLICADA" completa solo porque la mayoría de sus elementos son artículos de ley: revisa cada ítem por separado. Si un elemento es una sentencia (número de sentencia, "EP", "IN", "JP"), un "fallo No.", una "Resolución No.", un "precedente jurisprudencial obligatorio", un fallo de "triple reiteración", una publicación en "Gaceta Judicial" o en el "Registro Oficial" de un fallo, o cualquier precedente con efecto jurisprudencial, extráelo como jurisprudencia aunque esté en la misma lista o el mismo párrafo que las normas legales.
+
+REGLAS DE LA REVISIÓN DE LOS ABOGADOS (piloto civil v2, obligatorias):
+• Identificación completa del precedente: copia la referencia entera tal como la da la sentencia (por ejemplo, Gaceta Judicial con año, serie, número y página; Registro Oficial con número y fecha; número de juicio o de resolución con la Sala). Nunca la reduzcas a la sola fecha ("Sentencia de" seguido de una fecha) si la sentencia da más datos.
+• Fragmento completo: transcribe el pasaje citado completo, desde donde empieza hasta donde termina la cita en la sentencia; no lo cortes a mitad aunque sea largo.
+• Doctrina: al final agrega la sección "3. Doctrina citada en el caso:" con una viñeta por autor u obra que cite el juzgador (autor, obra si consta y el fragmento entre comillas). Si no cita doctrina, escribe "No consta en la sentencia".
+• Criterio del juzgador, cobertura: incluye la resolución de CADA excepción previa (contra la demanda principal y, si la hubo, contra la reconvención, identificando a cuál corresponde), el análisis de CADA requisito o presupuesto de la acción que el juzgador examina uno por uno, y su conclusión sobre cada uno (por ejemplo, la conclusión de que se cumplen o no los requisitos), y lo que resuelve sobre la reconvención.
+• Criterio del juzgador, exclusiones: no incluyas párrafos genéricos que no deciden el caso (fórmulas sobre seguridad jurídica, tutela judicial o la importancia del derecho civil sin aplicación al caso) ni párrafos que la sentencia transcribe de otra causa o de otro juez como antecedente, salvo que el juzgador los adopte expresamente como fundamento.
+
+1. Jurisprudencia mencionada en el caso:
+
+Identifica todas las sentencias, precedentes o fallos anteriores citados en la sentencia, tanto los que invoca la Sala Provincial como los que invocan las partes y la sentencia reproduce.
+
+Para cada jurisprudencia, extrae únicamente lo que conste en la sentencia:
+
+•	Nombre del caso, si consta.
+•	Sala o tribunal que emitió la sentencia citada (Sala de lo Civil y Mercantil de la Corte Nacional de Justicia, Pleno de la Corte Nacional, Corte Constitucional, Primera, Segunda o Tercera Sala de lo Civil y Mercantil de la Corte Suprema de Justicia, otra Corte Provincial, etc.). Si la sentencia no nombra el órgano que emitió el precedente, escribe "No consta en la sentencia" en su lugar; nunca lo deduzcas de la fecha, del número ni del tipo de fallo.
+•	Fecha de emisión, si consta. La fecha es la del fallo. Si la cita solo da la del Registro Oficial, escribe "R.O." seguido de esa fecha. No repitas la misma cita textual para varias referencias.
+•	Número de expediente, recurso, juicio, resolución o referencia (incluida la publicación en Gaceta Judicial o Registro Oficial), si consta.
+•	Fragmento pertinente del precedente citado.
+
+No incluyas doctrina, autores, normas legales ni referencias que no sean jurisprudencia.
+
+Todo lo que sigue al encabezado 'VOTO SALVADO' es del juez disidente. No lo uses en el criterio del tribunal ni en la jurisprudencia de la Sala. Si recoges jurisprudencia citada solo en el voto salvado, añade '(citada en el voto salvado)'. Si un párrafo se refiere a personas o hechos ajenos a las partes del proceso (texto de otra causa), no lo uses.
+
+Si no se menciona jurisprudencia, escribe: “No consta jurisprudencia mencionada en la sentencia.”
+
+Ejemplo de caso mixto (descrito en prosa, sin datos: nunca copies el ejemplo en la respuesta; si un precedente no aparece en el texto de la sentencia, no existe): un párrafo del análisis de la Sala empieza citando un artículo del código y, en el mismo párrafo, menciona uno o más fallos con su número, el juicio, la sala que los dictó, su fecha o su publicación en la gaceta judicial. El artículo se omite; cada fallo se extrae en su propia viñeta con la identificación, el órgano y la fecha que dice la sentencia ("No consta en la sentencia" en la línea del dato que falte) y el fragmento pertinente entre comillas.
+
+Nota: revisa TODOS los bloques "NORMATIVA APLICADA" de la sentencia y toda la motivación de la Sala (suele haber un análisis por cada agravio o por cada pretensión) — no te detengas en el primero que encuentres.
+
+2. Criterio del tribunal para resolver el caso:
+
+Extrae y transcribe textualmente los fundamentos utilizados por la Sala Especializada de lo Civil y Mercantil de la Corte Provincial de Justicia para resolver el recurso de apelación.
+
+Incluye únicamente citas literales del razonamiento de la Sala sobre:
+
+•	Los agravios o puntos de la sentencia de primera instancia analizados y el orden en que los analiza.
+•	La valoración de la prueba efectuada por la Sala (escrituras públicas, contratos privados, títulos valores, certificados del Registro de la Propiedad o Mercantil, documentos municipales, informes periciales de avalúo, contables o grafotécnicos, inspección judicial, testimonios, declaración de parte, correspondencia) y las diferencias con la valoración del juez de primera instancia.
+•	La carga de la prueba y las presunciones legales aplicadas.
+•	La aplicación o interpretación de normas del Código Civil, del Código de Comercio, de la Ley de Compañías, de la Ley de Inquilinato, del Código Orgánico General de Procesos, de la Constitución o de precedentes obligatorios.
+•	Las instituciones civiles o mercantiles discutidas (existencia, validez, interpretación e incumplimiento del contrato, resolución, nulidad, lesión enorme, simulación, responsabilidad civil y nexo causal, daño moral y su cuantificación, dominio y requisitos de la reivindicación, posesión y requisitos de la prescripción adquisitiva, partición, servidumbres, arrendamiento e inquilinato, sucesiones, títulos ejecutivos y excepciones, sociedades, seguros, insolvencia, tercerías, prescripción extintiva, caducidad) y la forma de cuantificar o negar cada rubro.
+•	La legitimación en la causa, la competencia y las excepciones previas, cuando la Sala se pronuncia sobre ellas.
+•	La motivación, congruencia o nulidad de la sentencia de primera instancia, cuando la Sala se pronuncia sobre ello.
+•	El razonamiento determinante para confirmar, revocar o reformar la sentencia, o para declarar la nulidad.
+
+No incluyas resumen de hechos, pretensiones de las partes, citas literales de artículos legales, parte dispositiva ni argumentos del voto salvado.
+
+Si existen varios criterios relevantes, preséntalos en viñetas separadas, manteniendo el orden en que aparecen en la sentencia.
+
+Al final de cada cita, indica la sección, considerando o apartado de la sentencia donde se encuentra, si consta.
+
+Formato obligatorio de salida (cada referencia en su propia viñeta de punto negro •, SIN el rótulo "Cita textual" y sin numerar):
+
+1. Jurisprudencia mencionada en el caso:
+
+•	Resolución/Sentencia No. [identificación o “No consta”]
+[Sala o tribunal emisor]
+Fecha: [fecha o “No consta”]
+“[fragmento pertinente citado]”
+
+2. Criterio del tribunal para resolver el caso:
+
+•	“[transcripción literal del criterio de la Sala de lo Civil y Mercantil de la Corte Provincial de Justicia]” ([sección, considerando o apartado si consta])
+
+3. Doctrina citada en el caso:
+Una viñeta por autor u obra citados por el juzgador, con el fragmento entre comillas; o "No consta en la sentencia".

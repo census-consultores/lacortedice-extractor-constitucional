@@ -1,0 +1,10 @@
+Ejemplos few-shot para los prompts de extracción.
+
+- tribunal/  → se inyectan al final del prompt 2 (primera instancia).
+- corte/     → se inyectan al final del prompt 5 (casación CNJ).
+
+Dejá aquí fichas .md ya revisadas por un abogado de la materia Civil y Mercantil
+(mismo formato de secciones que pide el prompt). Vacío = sin ejemplos; el
+pipeline funciona igual, con algo menos de consistencia de formato.
+Los ejemplos tributarios del repo de origen se quitaron a propósito: en
+otra materia contaminan la extracción.

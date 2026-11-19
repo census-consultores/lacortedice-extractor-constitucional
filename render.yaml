@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: constitucional-worker
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: starter
+    envVars:
+      - key: WORKER_API_KEY
+        sync: false
+      - key: DATABASE_URL
+        sync: false
+      - key: STRAPI_URL
+        sync: false
+      - key: STRAPI_API_TOKEN
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: DEEPINFRA_API_KEY
+        sync: false
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: MAX_CONCURRENT_JOBS
+        value: "4"

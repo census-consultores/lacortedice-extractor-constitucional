@@ -1,0 +1,116 @@
+QUINTO PROMPT
+EXTRACCIÓN DE INFORMACIÓN DE SENTENCIA DE CASACIÓN CIVIL Y MERCANTIL DE LA CORTE NACIONAL DE JUSTICIA
+Objetivo
+Analizar la sentencia proporcionada y extraer de manera literal, técnica, exhaustiva y estructurada toda la información contenida en una sentencia emitida por la Sala Especializada de lo Civil y Mercantil de la Corte Nacional de Justicia al resolver un recurso de casación.
+La información debe obtenerse exclusivamente del contenido de la sentencia, sin agregar interpretaciones, inferencias, conclusiones propias, resúmenes subjetivos ni información externa.
+La finalidad es generar una ficha uniforme de análisis jurisprudencial que permita comprender integralmente el recurso de casación, los argumentos de las partes y la decisión adoptada por la Corte Nacional de Justicia.
+Contexto procesal: en materia civil y mercantil el proceso tiene tres niveles. La sentencia de primera instancia la dicta un juez unipersonal de la Unidad Judicial Civil, Civil y Mercantil o Multicompetente; la sentencia de segunda instancia la dicta la Sala Especializada de lo Civil y Mercantil de la Corte Provincial de Justicia al resolver el recurso de apelación; y el recurso de casación se interpone contra la sentencia de la Corte Provincial. La sentencia recurrida en casación es, por tanto, la de la Sala Provincial, no la del juez de primera instancia. No confundas ambas. Ten presente que en el procedimiento ejecutivo y en otros procedimientos puede existir restricción legal al recurso de casación; si la Corte se pronuncia sobre la procedencia del recurso por ese motivo, transcríbelo en la sección correspondiente.
+Instrucciones Generales (Obligatorias)
+1.	Extrae únicamente la información que conste expresamente en la sentencia.
+2.	No reformules, completes ni infieras información.
+3.	Cuando un dato no aparezca expresamente en la sentencia, escribir literalmente: "No consta en la sentencia".
+4.	Utiliza exactamente la estructura y numeración que se detalla a continuación.
+5.	La redacción debe ser técnica, formal y exhaustiva.
+6.	Los antecedentes deberán redactarse exclusivamente en prosa continua, sin utilizar viñetas.
+7.	Los argumentos del recurrente y de la contraparte deberán presentarse obligatoriamente en formato de viñetas.
+8.	Cada viñeta deberá contener el desarrollo completo del argumento correspondiente, sin resumir, condensar ni omitir fundamentos fácticos o jurídicos.
+9.	Bajo ninguna circunstancia se incorporarán interpretaciones, comentarios o criterios propios.
+10.	Todo el contenido debe corresponder exclusivamente a lo expresado por las partes o por la Corte Nacional de Justicia en la sentencia.
+11.	No elaborar resúmenes ejecutivos, síntesis introductorias ni contextualizaciones generales; el origen del recurso de casación deberá explicarse únicamente en la sección de antecedentes.
+12.	Los nombres de jueces, abogados y partes se escriben sin títulos honoríficos y con mayúsculas y minúsculas correctas.
+13.	Primero identifica la providencia. Si la firma un solo conjuez y decide sobre la admisibilidad (art. 270 COGEP), es un auto de inadmisión: en 'Juez Ponente' escribe el nombre del conjuez seguido de '(conjuez nacional, auto de admisibilidad unipersonal)' y en 'Otros Jueces', 'No aplica'. En argumentos recoge solo lo que el auto atribuye al recurrente (normas invocadas y caso elegido). En la Decisión Final explica únicamente los casos que el auto analiza y cierra con 'Inadmite el recurso de casación.'.
+14.	La exhaustividad nunca autoriza a completar: cada viñeta de argumentos debe corresponder a un pasaje concreto de la sentencia.
+15.	REGLAS DE LA REVISIÓN DE LOS ABOGADOS (piloto civil v2): (a) En la sección 8, después de los casos invocados, admitidos y analizados, transcribe la alegación del vicio que el tribunal fija como objeto de análisis (el cargo tal como lo formula la Sala, normalmente antes de resolverlo). (b) En los argumentos del recurrente va solo lo que la sentencia le atribuye; las conclusiones del tribunal (por ejemplo, que la exigencia fue excesiva o que se prescindió de una prueba) son del tribunal y no del recurrente. Cierra cada viñeta con la ubicación del pasaje entre paréntesis. (c) Si el tribunal desecha unos cargos y acoge otros, la decisión y los antecedentes deben decir cuáles se desecharon, por qué, y cuál prosperó.
+Estructura de Extracción
+1. Instancia
+Indicar siempre:
+Sala Especializada de lo Civil y Mercantil de la Corte Nacional de Justicia
+
+2. Jueces que intervinieron
+Identifica únicamente a los jueces nacionales (o conjueces, si la sentencia indica que actuaron en reemplazo) que integran el tribunal de casación y suscriben la sentencia: el juez ponente y los otros dos. No incluyas secretarios ni jueces de instancias anteriores. Si la sentencia fue dictada por un solo juez o conjuez (por ejemplo, en la fase de admisión), indícalo así. Si la providencia es un auto de inadmisión firmado por un solo conjuez, aplica la instrucción general 13.
+• Juez Ponente:
+• Otros Jueces:
+3. Fecha de emisión de la sentencia de casación
+Indicarla exactamente como consta en la sentencia.
+4. Sala de la Corte Provincial que emitió la sentencia recurrida
+Indicar literalmente la Sala que dictó la sentencia recurrida, tal como consta: su denominación completa (especializada de lo civil y mercantil, multicompetente u otra) y la provincia de la Corte Provincial de Justicia que indique la sentencia.
+Si la sentencia indica además la fecha de la sentencia recurrida, transcríbela a continuación.
+
+5. Antecedentes del caso en casación
+Explicar de forma clara, completa y técnica:
+•	Quién presentó la demanda original y contra quién, con la calidad en que comparecieron (propietario, acreedor, heredero, tenedor del título, socio, asegurado, tercerista, representante legal de una compañía, etc.).
+•	Cuál fue la pretensión principal (cumplimiento o resolución de contrato, cobro de obligación o de título ejecutivo, nulidad o rescisión por lesión enorme, simulación o vicios del consentimiento, daños y perjuicios, daño moral, reivindicación, prescripción adquisitiva de dominio, acción posesoria, partición, servidumbre, desahucio o terminación de arrendamiento, pretensión sucesoria, impugnación de resolución societaria, pago de seguro, insolvencia, tercería, etc.), el tipo de procedimiento y, si consta, la cuantía.
+•	Si existió reconvención y cuál fue su objeto.
+•	Qué resolvió el juez de primera instancia.
+•	Qué resolvió la Sala de la Corte Provincial en apelación.
+•	Cómo se desarrolló el proceso hasta llegar a la casación, incluyendo quién interpuso el recurso y, si consta, el auto de admisión o calificación del recurso y las causales admitidas.
+Esta sección deberá redactarse exclusivamente en prosa continua, sin utilizar viñetas. Prohibido usar 'posiblemente', 'probablemente' o 'se entiende que', y prohibido enumerar pretensiones que el texto no menciona. Si un dato no consta, escribe 'No consta en la sentencia'.
+6. Decisión de las instancias anteriores
+Indicar de manera clara y en prosa continua, por separado:
+• Primera instancia: si el juez de la Unidad Judicial aceptó la demanda, la aceptó parcialmente o la rechazó (o aceptó o rechazó la reconvención, declaró el abandono, la nulidad, aprobó una transacción o conciliación), y los aspectos principales resueltos, incluyendo declaraciones efectuadas, valores concedidos o negados y órdenes de entrega, inscripción o cancelación si constan.
+• Segunda instancia: si la Sala de la Corte Provincial confirmó, revocó o reformó la sentencia de primera instancia (o declaró la nulidad), y los aspectos principales resueltos. Describe la decisión de apelación con lo que resolvió el voto de mayoría (por ejemplo, 'rechazó el recurso del actor y aceptó parcialmente el del demandado en cuanto a las costas'), no con 'confirmó' si modificó algo.
+Si la sentencia de casación solo menciona la decisión de una de las instancias, transcribe lo que conste y escribe "No consta en la sentencia" para la otra.
+7. Recurrente
+Indicar qué parte interpuso el recurso de casación (actor, demandado, reconviniente, tercerista, compañía, aseguradora, institución financiera, herederos, u otro), con su nombre tal como consta. Si ambas partes recurrieron, indícalo y señala a quién corresponde cada recurso.
+
+8. Causal o causales invocadas
+Identificar expresamente las causales invocadas por el recurrente conforme al artículo 268 del Código Orgánico General de Procesos (o, en procesos iniciados bajo la Ley de Casación, el artículo 3 de dicha ley, indicándolo así si la sentencia lo dice):
+• CAUSAL 1 - Aplicación indebida, falta de aplicación o errónea interpretación de normas procesales que hayan viciado el proceso de nulidad insanable o provocado indefensión.
+• CAUSAL 2 - Cuando la sentencia o auto no contenga los requisitos exigidos por la ley o en su parte dispositiva se adopten decisiones contradictorias o incompatibles, así como cuando no cumplan el requisito de motivación.
+• CAUSAL 3 - Cuando se haya resuelto en la sentencia o auto lo que no sea materia del litigio o se haya concedido más allá de lo demandado, o se omita resolver algún punto de la controversia.
+• CAUSAL 4 - Aplicación indebida, falta de aplicación o errónea interpretación de los preceptos jurídicos aplicables a la valoración de la prueba, siempre que hayan conducido a una equivocada aplicación o a la no aplicación de normas de derecho sustantivo.
+• CAUSAL 5 - Aplicación indebida, falta de aplicación o errónea interpretación de normas de derecho sustantivo, incluyendo los precedentes jurisprudenciales obligatorios, que hayan sido determinantes en la parte dispositiva.
+Para cada causal, indica el vicio concreto alegado (aplicación indebida, falta de aplicación o errónea interpretación) y las normas que el recurrente señala como infringidas (por ejemplo, artículos del Código Civil, del Código de Comercio, de la Ley de Compañías, de la Ley de Inquilinato, del Código Orgánico General de Procesos, de la Constitución, precedentes jurisprudenciales obligatorios), tal como consten. Si la sentencia indica que alguna causal fue inadmitida en la fase de admisión, señálalo. Para cada recurrente escribe una línea con tres datos: casos invocados al interponer (y, si hubo, los elegidos al aclarar); casos admitidos por el conjuez; y casos analizados por el tribunal. Indica expresamente si desistió en audiencia. No digas que un caso fue inadmitido si la sentencia no lo dice.
+9. Argumentos del Recurrente
+Extraer de forma íntegra, detallada y técnica todos los argumentos formulados en el recurso de casación.
+Presentar los argumentos obligatoriamente en formato de viñetas.
+Cada viñeta deberá desarrollar completamente un argumento relevante, incluyendo:
+•	Cuestionamientos realizados a la sentencia de la Corte Provincial recurrida.
+•	Hechos alegados.
+•	Fundamentos jurídicos.
+•	Normas invocadas.
+•	Razones por las cuales solicita casar la sentencia.
+No resumir ni omitir argumentos. Ningún argumento deberá iniciar con "Que", "Alega que", "Sostiene que" o similares. Si ambas partes recurrieron, identifica claramente a quién corresponde cada argumento. Atribuye a esta parte solo lo que la sentencia le atribuye expresamente ('el recurrente manifiesta', 'la defensa de la contraparte señaló', 'en su escrito'). Lo que la Corte razona, concluye o cita en su análisis (normas, jurisprudencia, doctrina) es de la Corte y no va aquí, aunque favorezca a esta parte. En NORMATIVA APLICADA incluye una norma solo si la sentencia dice que esta parte la invocó. La exhaustividad nunca autoriza a completar. Cada viñeta debe corresponder a un pasaje concreto de la sentencia. Si la sentencia resume la posición de la parte en una o dos frases, escribe una o dos viñetas. No repitas una idea con otras palabras. Si no consta, escribe 'No consta en la sentencia'.
+Normativa Aplicada
+Debe comenzar obligatoriamente con:
+NORMATIVA APLICADA:
+Luego incluir todas las normas invocadas por el recurrente, escritas en prosa y separadas por punto y coma (;). Si no consta, escribir: "No consta normativa aplicada atribuible a esta parte en la sentencia".
+10. Argumentos de la Contraparte
+Extraer de forma íntegra, detallada y técnica todos los argumentos formulados por la contraparte para defender la sentencia recurrida o para oponerse al recurso.
+Presentar los argumentos obligatoriamente en formato de viñetas.
+Cada viñeta deberá desarrollar completamente un argumento relevante, incluyendo:
+•	Contestación a los cargos formulados por el recurrente.
+•	Fundamentos fácticos.
+•	Fundamentos jurídicos.
+•	Normas invocadas.
+•	Razones por las cuales solicita que no se case la sentencia.
+No resumir ni omitir argumentos. Si la sentencia indica que la contraparte no contestó el recurso ni intervino en la audiencia, indicarlo expresamente. Atribuye a esta parte solo lo que la sentencia le atribuye expresamente ('el recurrente manifiesta', 'la defensa de la contraparte señaló', 'en su escrito'). Lo que la Corte razona, concluye o cita en su análisis (normas, jurisprudencia, doctrina) es de la Corte y no va aquí, aunque favorezca a esta parte. En NORMATIVA APLICADA incluye una norma solo si la sentencia dice que esta parte la invocó. La exhaustividad nunca autoriza a completar. Cada viñeta debe corresponder a un pasaje concreto de la sentencia. Si la sentencia resume la posición de la parte en una o dos frases, escribe una o dos viñetas. No repitas una idea con otras palabras. Si no consta, escribe 'No consta en la sentencia'.
+Normativa Aplicada
+Debe comenzar obligatoriamente con:
+NORMATIVA APLICADA:
+Luego incluir todas las normas invocadas por la contraparte, escritas en prosa y separadas por punto y coma (;). Si no consta, escribir: "No consta normativa aplicada atribuible a esta parte en la sentencia".
+11. Decisión Final
+Indicar textualmente si la Corte Nacional de Justicia:
+• Casa la sentencia.
+• No casa la sentencia.
+• Casa parcialmente la sentencia.
+• Inadmite el recurso de casación. (solo cuando la providencia es un auto de inadmisión; ver la instrucción general 13)
+La sección debe cerrar con una de esas cuatro frases, escrita exactamente así, en su propia línea. Antes de ella, explicar de forma literal los fundamentos principales utilizados para resolver el recurso y, si la Corte casó la sentencia y dictó una nueva en su lugar, indicar literalmente qué resolvió sobre el fondo (por ejemplo, si confirmó o revocó la sentencia de primera instancia, si aceptó o rechazó la demanda o la reconvención, qué declaró, qué valores concedió o negó, qué ordenó inscribir, cancelar, entregar o restituir). Si la Corte declaró la nulidad de lo actuado y devolvió el proceso, o si declaró improcedente o desierto el recurso, transcribe literalmente lo resuelto y luego la frase que mejor corresponda según la propia sentencia.
+12. Medidas Adicionales
+Detallar cualquier disposición complementaria ordenada por la Corte Nacional de Justicia: liquidación de valores, intereses, costas, honorarios, multas, devolución del proceso al órgano de origen para ejecución, oficios a registradores, notarías u otras entidades, cancelación o ratificación de medidas cautelares, llamados de atención, etc.
+Si no existen:
+"No consta en la sentencia".
+Esta sección deberá redactarse en prosa continua.
+13. Voto Salvado
+Indicar el nombre completo del juez o jueza que emitió voto salvado.
+Si no existe:
+"No consta en la sentencia".
+14. Argumento del Voto Salvado
+Transcribir de forma literal y completa el contenido del voto salvado.
+No resumir.
+No interpretar.
+No reformular.
+Reproducir exactamente el texto contenido en la sentencia.
+Si no existe voto salvado:
+"No consta en la sentencia".
+

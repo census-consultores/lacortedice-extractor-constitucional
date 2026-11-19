@@ -1,0 +1,109 @@
+TIPO DE PRUEBA — CLASIFICACIÓN INTERNA PARA ANÁLISIS ESTADÍSTICO (NO SE MUESTRA AL USUARIO)
+
+Objetivo:
+Clasificar, de forma exclusivamente categórica y mecánica, qué TIPO(S) de prueba presentó cada parte en el proceso civil o mercantil, y extraer (si es identificable) por qué una prueba específica resultó determinante o por qué la ausencia de una prueba específica fue decisiva. Uso exclusivo de análisis estadístico interno (jurimetría). Este NO es un campo de presentación para el usuario final: no necesita prosa elegante, solo debe ser preciso y consistente.
+
+Recibirá, de la misma sentencia, estos 4 campos ya extraídos (NO el PDF completo — no hace falta, estos campos ya contienen lo necesario):
+- OBJETO DE LA CONTROVERSIA
+- PRUEBAS DEL ACTOR
+- PRUEBAS DEL DEMANDADO
+- CRITERIO DEL JUZGADOR PARA RESOLVER
+
+Instrucciones generales:
+- Clasifique el listado de "PRUEBAS DEL ACTOR" y el de "PRUEBAS DEL DEMANDADO" POR SEPARADO. Cada lado puede tener varios códigos a la vez (multi-etiqueta) — marque TODOS los que apliquen para ese lado.
+- Clasifique por el LADO PROCESAL que indica el campo (actor / demandado), aunque el demandado haya reconvenido; las pruebas de la reconvención se clasifican dentro del lado del demandado.
+- Si un lado no presentó pruebas (el campo dice "No se presentaron pruebas por..." o equivalente), no le asigne ningún código — deje ese lado vacío.
+- No invente categorías fuera de este catálogo. Si una prueba no encaja claramente en ninguna, use OTRA_DOCUMENTAL (para el catch-all documental) o NO_DETERMINABLE (si ni siquiera se puede determinar que sea documental).
+- El campo POR_QUE y el campo EVIDENCIA_AUSENTE se completan leyendo el CRITERIO DEL JUZGADOR PARA RESOLVER — son opcionales, solo los complete si el texto realmente lo permite (ver reglas abajo). No fuerce ninguno de los dos si el criterio no lo sustenta con claridad.
+
+CATÁLOGO (use exactamente estos códigos, tal como están escritos):
+
+ESCRITURA_PUBLICA — escritura pública otorgada ante notario que contiene un contrato o acto jurídico sustantivo: compraventa, promesa de compraventa, hipoteca, prenda, mutuo con garantía, donación, permuta, partición, constitución o reforma de compañía, testamento abierto, cesión de derechos, dación en pago, cancelación de hipoteca, y sus copias certificadas o certificaciones notariales. Si el documento notarial no contiene un contrato o acto sustantivo (acta notarial, declaración juramentada, reconocimiento de firma, poder), use DOCUMENTO_NOTARIAL.
+
+DOCUMENTO_NOTARIAL — actas notariales (de constatación, de requerimiento, de desahucio, de notificación), declaraciones juramentadas ante notario, reconocimiento de firma y rúbrica, protocolizaciones, poderes generales o especiales, posesión efectiva otorgada ante notario, cartas notariadas, diligencias notariales de inventario. Si es una escritura que contiene un contrato o acto sustantivo, use ESCRITURA_PUBLICA.
+
+CONTRATO — contrato o documento privado contractual presentado como prueba sustantiva, con o sin reconocimiento de firma: contrato privado de compraventa o de promesa, contrato de arrendamiento o inquilinato, contrato de obra, de prestación de servicios, de mutuo o préstamo privado, de mandato, de comodato, de depósito, de seguro (póliza), de transporte, de distribución, de corretaje, reconocimiento de deuda, convenio de pago, acuerdo transaccional, recibos o cartas de pago anexas al contrato. No use este código si "contrato" aparece solo como referencia normativa abstracta, solo cuando un contrato específico fue presentado como prueba. Si consta en escritura pública, use ESCRITURA_PUBLICA; si es un título valor, use TITULO_VALOR.
+
+TITULO_VALOR — pagaré a la orden, letra de cambio, cheque (con o sin protesto), factura comercial negociable u otro título valor presentado como documento base de la acción o como prueba del crédito, incluidos sus endosos y avales, el protesto y la certificación bancaria de devolución del cheque cuando acompaña al título.
+
+CERTIFICADO_REGISTRO_PROPIEDAD — certificados emitidos por el Registro de la Propiedad: certificado de propiedad o de dominio, historia de dominio, certificado de gravámenes, certificado de hipotecas, inscripciones y marginaciones, razones de inscripción, certificado de no poseer bienes. Incluye los certificados del Registro Mercantil sobre prenda industrial, contratos de arrendamiento mercantil u otros actos inscritos sobre bienes.
+
+DOCUMENTAL_SOCIETARIA — documentos de la Superintendencia de Compañías, Valores y Seguros o del Registro Mercantil relativos a la persona jurídica: nombramientos de representante legal, actas y resoluciones de junta general, estatutos y reformas, certificados de cumplimiento de obligaciones, certificados de existencia legal, nómina de socios o accionistas, libros sociales, resoluciones de la Superintendencia, informes de administradores o comisarios. Si se trata de estados financieros o balances presentados para probar un hecho contable, use DOCUMENTAL_CONTABLE.
+
+DOCUMENTAL_MUNICIPAL — documentos emitidos por el municipio o gobierno autónomo descentralizado relativos al inmueble: certificado de avalúo y catastro, clave catastral, carta de pago del impuesto predial, línea de fábrica, informe de regulación, permisos de construcción, planos aprobados, certificados de nomenclatura o de uso de suelo, certificaciones de planificación.
+
+DOCUMENTAL_ADMINISTRATIVO — documentos emitidos por otras entidades públicas distintas del municipio, del Registro de la Propiedad y de la Superintendencia de Compañías: certificados del Registro Civil (nacimiento, defunción, matrimonio, cuando se usan para acreditar la calidad de heredero o cónyuge), documentos de la Agencia Nacional de Tránsito o del Registro de vehículos, partes policiales, informes de Fiscalía o copias de procesos penales, certificaciones del Servicio de Rentas Internas sobre existencia de la sociedad o de contribuyente presentadas como prueba de un hecho civil, resoluciones de superintendencias distintas de la de compañías, oficios y certificaciones institucionales. No lo confunda con el acto administrativo impugnado de otras materias: aquí es solo un documento presentado como prueba.
+
+DOCUMENTAL_CONTABLE — facturas, notas de venta, comprobantes de egreso o ingreso, estados de cuenta de clientes o proveedores, libros contables, estados financieros y balances, liquidaciones de cuenta, tablas de amortización, kardex, inventarios valorados, registros de pagos y abonos. No la confunda con TITULO_VALOR (factura negociable como título ejecutivo) ni con INFORME_PERICIAL_CONTABLE.
+
+CERTIFICACION_BANCARIA — estados de cuenta bancarios, comprobantes de transferencia o depósito, certificaciones de entidades financieras, certificados de saldo o de deuda, certificaciones de cheques devueltos o protestados cuando se presentan de forma autónoma, historiales de transacciones, reportes de buró de crédito.
+
+CORRESPONDENCIA — correos electrónicos, mensajes de WhatsApp u otra mensajería, capturas de pantalla de chats, cartas, requerimientos extrajudiciales, notificaciones de terminación de contrato, oficios cruzados entre las partes, publicaciones en redes sociales o en medios de comunicación (típicas en daño moral), presentados como prueba de comunicación, de reconocimiento de la deuda, de requerimiento, de plazo o de los hechos.
+
+INFORME_PERICIAL_AVALUO — informe pericial de avalúo de un inmueble, vehículo u otro bien, elaborado por un perito acreditado (ingeniero civil, arquitecto, avaluador), típicamente para determinar el justo precio (lesión enorme), el valor de los bienes a partir o a rematar, el valor de los daños materiales o el monto de las mejoras. Márquelo solo si el texto dice "avalúo", "perito avaluador" o equivalente inequívoco; para otros informes periciales técnicos use INFORME_PERICIAL_TECNICO.
+
+INFORME_PERICIAL_CONTABLE — informe pericial elaborado por un perito acreditado en contabilidad, auditoría o finanzas: liquidación de capital e intereses, liquidación de cuentas, determinación del daño emergente o del lucro cesante, examen de registros contables, liquidación de la sociedad o de la comunidad de bienes. Márquelo solo si el texto dice explícitamente "informe pericial", "perito" o "liquidación pericial" — no lo confunda con DOCUMENTAL_CONTABLE.
+
+INFORME_PERICIAL_TECNICO — informe pericial de un perito técnico distinto del avaluador y del contable: grafotécnico o documentológico (autenticidad de firmas o alteración del documento), topográfico o de linderos (identidad del inmueble, deslinde, servidumbres), de ingeniería o construcción (vicios de la obra), de tránsito o mecánico, médico o psicológico (daño a la persona, daño moral), informático (extracción de mensajes o correos), de propiedad intelectual, u otro.
+
+INSPECCION_JUDICIAL — diligencia de inspección judicial practicada como prueba (p. ej. al inmueble para verificar la posesión, los linderos, la identidad del bien, el estado de la obra o de la cosa arrendada, los daños), con o sin perito acompañante.
+
+TESTIMONIAL — declaración de testigos o declaración de parte (del actor o del demandado, incluida la del representante legal de una compañía), practicada en audiencia, incluida la confesión judicial o el juramento rendido en audiencia bajo cualquiera de esas denominaciones. Si es una declaración juramentada ante notario, use DOCUMENTO_NOTARIAL.
+
+DECLARACION_TERCERO — cartas, certificaciones o declaraciones de terceros (no periciales, no notariales, no rendidas en audiencia) que ratifican un hecho — ej. una certificación de un administrador de propiedad horizontal, una carta de un vecino, una certificación de un proveedor o cliente, un certificado de una junta parroquial o de una asociación.
+
+JURISPRUDENCIA_PRECEDENTE — jurisprudencia o precedentes citados como fundamento de la posición de una parte (no es prueba en sentido estricto, pero se agrupa así porque cumple la misma función argumentativa).
+
+OTRA_DOCUMENTAL — cualquier otro documento que sea claramente prueba documental pero no encaje en ninguno de los códigos anteriores (p. ej. fotografías, videos, planos no municipales, levantamientos planimétricos privados, sentencias o providencias de otros procesos presentadas como documento, cédulas y papeletas de votación, títulos académicos, publicaciones de prensa no vinculadas a comunicación entre las partes, documentos de la sucesión no notariales).
+
+NO_DETERMINABLE — el texto no permite determinar con certeza el tipo de prueba de ese ítem.
+
+CAMPO "POR_QUE" (opcional — SEA ESTRICTO, ante la duda ponga NO_DETERMINABLE):
+Lea el CRITERIO DEL JUZGADOR PARA RESOLVER. Solo llene este campo si el pasaje cumple LAS DOS condiciones:
+  (1) se refiere a una PRUEBA CONCRETA E IDENTIFICABLE (esa escritura pública, ese pagaré, ese contrato, ese certificado del Registro de la Propiedad, ese informe pericial de avalúo, esa inspección judicial, ese testimonio de una persona determinada — idealmente con nombre, número, notaría o fecha), NO a "la prueba" en abstracto ni a "los hechos afirmados";
+  (2) explica QUÉ tuvo esa prueba (o qué le faltó) que llevó al juzgador a aceptarla o rechazarla — un atributo concreto: la escritura está inscrita, el pagaré carece de fecha de vencimiento, la firma fue reconocida o resultó falsa según la pericia, los linderos de la inspección coinciden con los del título, el avalúo pericial fija el justo precio en determinado valor, el testigo no precisó desde cuándo vio al actor en el inmueble, el certificado de gravámenes muestra una hipoteca vigente.
+Si se cumplen, copie literalmente ese pasaje (sin parafrasear). Si no, escriba NO_DETERMINABLE. Es cita textual o nada — no invente ni resuma.
+
+CONTRAEJEMPLOS (ilustrativos) — NINGUNO de estos va en este campo:
+  ✗ "la acción de rescisión por lesión enorme prescribe en cuatro años contados desde la fecha del contrato" → es una caracterización JURÍDICA de la acción y un cómputo de plazo, no dice nada sobre una prueba. Va NO_DETERMINABLE.
+  ✗ "han transcurrido más de cinco años desde el vencimiento del pagaré, por lo que la acción ejecutiva está prescrita" → es un cómputo de PLAZOS/prescripción, no evaluación de prueba. Va NO_DETERMINABLE.
+  ✗ "de la prueba actuada no se ha llegado a demostrar la posesión alegada" → dice "la prueba actuada" pero nunca identifica CUÁL ni QUÉ le faltó. Genérico. Va NO_DETERMINABLE.
+  ✗ "corresponde al actor probar el dominio del inmueble que reivindica" → es la regla de carga de la prueba en abstracto, no la evaluación de una prueba concreta. Va NO_DETERMINABLE.
+EJEMPLOS CORRECTOS (ilustrativos; sí van en este campo):
+  ✓ "el pagaré a la orden de 12 de marzo de 2019 no contiene la fecha de vencimiento de la obligación ni la indicación del lugar de pago, por lo que no reúne los requisitos del título ejecutivo" → documento concreto + atributo concreto que decidió su rechazo.
+  ✓ "del informe pericial de avalúo practicado por el perito Andrade se establece que el justo precio del inmueble a la fecha de la compraventa era de USD 148.000,00, mientras que el precio pagado fue de USD 55.000,00, inferior a la mitad del justo precio" → prueba identificada + atributo concreto (valor del avalúo) que decidió su aceptación.
+  ✓ "los testigos Cedeño y Zambrano afirman haber visto al actor cultivar y cercar el predio, pero ninguno precisa desde qué año, de modo que sus declaraciones no permiten establecer el tiempo de posesión exigido por la ley" → pruebas identificadas + exactamente qué les faltó.
+  ✓ "la inspección judicial permitió constatar que los linderos y la superficie del inmueble poseído por el demandado coinciden con los que constan en la escritura de compraventa inscrita el 4 de abril de 2008 a favor del actor, con lo que se acredita la identidad del bien" → pruebas identificadas (inspección, escritura) + efecto concreto.
+  ✓ "el certificado del Registro de la Propiedad demuestra que a la fecha de la demanda el inmueble se encontraba inscrito a nombre de una tercera persona y no del actor, por lo que este carece de legitimación para reivindicar" → documento concreto + atributo concreto que decidió el resultado.
+
+CAMPO "EVIDENCIA_AUSENTE" (opcional — SEA MUY ESTRICTO, ante la duda ponga NINGUNA):
+Lea el CRITERIO DEL JUZGADOR PARA RESOLVER. Solo llene este campo si se cumplen LAS TRES condiciones a la vez:
+  (1) el sujeto que falló en presentar algo es UNA PARTE del juicio (el actor o el demandado), NO el juzgador ni un tercero;
+  (2) lo que faltó es un DOCUMENTO/PRUEBA CONCRETO E IDENTIFICABLE (la escritura pública inscrita, el certificado del Registro de la Propiedad, el contrato escrito, el pagaré original, el informe pericial de avalúo, la inspección judicial, el certificado de gravámenes, la póliza de seguro, el acta de la junta general, la posesión efectiva), NO una afirmación genérica de que "no probó", "no justificó" o "no desvirtuó";
+  (3) el juzgador conecta esa ausencia con el resultado.
+Si se cumplen las tres, copie literalmente ese pasaje. Si falla cualquiera de las tres, escriba NINGUNA.
+
+CONTRAEJEMPLOS (ilustrativos) — NINGUNO de estos va en este campo:
+  ✗ "el vendedor incumplió su obligación de entregar el inmueble libre de gravámenes" → es una falla de CONDUCTA de la parte en la relación contractual, no una parte que no presentó prueba en el juicio. Va NINGUNA.
+  ✗ "el juzgador de primera instancia no valoró la escritura pública de compraventa" → la prueba SÍ se presentó; el problema es que no fue valorada. Es un vicio de motivación/valoración, no evidencia ausente. Va NINGUNA.
+  ✗ "el actor no ha probado la posesión por el tiempo que exige la ley" → genérico ("no probó"), no identifica ningún documento o prueba concreta que faltara. Va NINGUNA.
+  ✗ "la demandada no presentó prueba alguna que desvirtúe la existencia de la obligación" → "prueba alguna" en abstracto. Va NINGUNA.
+EJEMPLO CORRECTO (ilustrativo; sí va en este campo):
+  ✓ "el actor no acompañó el certificado del Registro de la Propiedad que acredite que el inmueble se encuentra inscrito a su nombre, requisito indispensable para la procedencia de la acción reivindicatoria, por lo que la demanda no puede prosperar" → parte identificada + documento concreto + conectado al resultado.
+  ✓ "la parte demandada no presentó el informe pericial de avalúo que anunció para desvirtuar el justo precio establecido por el perito del actor, de modo que ese valor se mantiene como no controvertido" → parte identificada + documento concreto + conectado al resultado.
+
+Ojo: este campo depende de que el CRITERIO DEL JUZGADOR lo mencione explícitamente — si el juzgador no lo dice con esa especificidad, no hay forma de saberlo desde estos 4 campos, y es correcto y esperado escribir NINGUNA en esos casos (no es un error, es una limitación real de la fuente). Se ESPERA que la mayoría de las causas den NINGUNA aquí.
+
+Formato de salida obligatorio (una sección por línea, sin explicación adicional antes ni después):
+
+ACTOR: CODIGO1, CODIGO2
+DEMANDADO: CODIGO1, CODIGO3
+POR_QUE: <cita textual completa, o NO_DETERMINABLE>
+EVIDENCIA_AUSENTE: <cita textual completa, o NINGUNA>
+
+Ejemplo de salida completa y correcta (ilustrativo):
+
+ACTOR: ESCRITURA_PUBLICA, CERTIFICADO_REGISTRO_PROPIEDAD, INSPECCION_JUDICIAL, INFORME_PERICIAL_TECNICO
+DEMANDADO: TESTIMONIAL, DOCUMENTAL_MUNICIPAL
+POR_QUE: "la inspección judicial permitió constatar que los linderos y la superficie del inmueble poseído por el demandado coinciden con los que constan en la escritura de compraventa inscrita el 4 de abril de 2008 a favor del actor, con lo que se acredita la identidad del bien"
+EVIDENCIA_AUSENTE: NINGUNA
