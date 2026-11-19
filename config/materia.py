@@ -43,6 +43,11 @@ COLA_EXCLUIR: tuple = ()
 IDS_MATERIA_SATJE: set = {9}    # garantías constitucionales (mapeo 9-nov-2026; índices civil y penal)
 ETIQUETA_OTRA_MATERIA = 'No constitucional'
 
+# Nombres de actuación (normalizados, sin tildes) con los que los jueces de
+# garantías registran la resolución de fondo sin la palabra "SENTENCIA":
+# "NEGAR ACCIÓN (RESOLUCION)", "ACEPTAR ACCIÓN (RESOLUCION)", hábeas corpus…
+PALABRAS_RESOLUCION_DE_FONDO: tuple = ("ACCION", "HABEAS", "GARANTIA", "PROTECCION")
+
 # ─── Instancias ──────────────────────────────────────────────────────────────
 # Tupla = todas sus palabras deben aparecer en nombreJudicatura (normalizado,
 # sin tildes, MAYÚSCULAS); basta con que matchee una tupla de la lista.
