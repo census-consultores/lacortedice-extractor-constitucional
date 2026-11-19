@@ -32,6 +32,7 @@ from api import (
 )
 from resolucion.satje.tribunal import clasificar_cogep, es_incidente_primera_instancia
 from worker import job_manager as jm
+from worker import numeracion
 
 PAUSA_SEG_BACKFILL = 1.5  # pausa entre causas para no saturar el SATJE
 
@@ -232,7 +233,7 @@ def ejecutar_job_duracion(job_id: int, tribunal: str, año: str, desde: int,
         if hasta and n > hasta:
             break
 
-        numero = f"{tribunal}-{año}-{n:05d}"
+        numero = numeracion.numero(tribunal, año, n)
         exitosa = False
         omitida = False
         es_error = False

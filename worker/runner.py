@@ -25,6 +25,7 @@ from worker import job_manager as jm
 from worker import logger as log
 from worker.strapi_client import StrapiClient
 from api import SatjeNoDisponible
+from worker import numeracion
 
 STRAPI = StrapiClient()
 
@@ -257,7 +258,7 @@ def ejecutar_job(job_id: int, pause_ev: threading.Event, kill_ev: threading.Even
             n += 1
             continue
 
-        numero = f"{tribunal}-{año}-{n:05d}"
+        numero = numeracion.numero(tribunal, año, n)
 
         if not _esperar_turno_satje(job_id, pause_ev, kill_ev):
             continue  # llegó pausa o kill: lo registra el inicio del bucle

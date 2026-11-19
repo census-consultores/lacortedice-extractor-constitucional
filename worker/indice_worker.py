@@ -31,6 +31,7 @@ import api
 from api import normalizar_numero
 from worker import job_manager as jm
 from worker import logger as log
+from worker import numeracion
 
 CREATE_INDICE_SQL = """
 CREATE TABLE IF NOT EXISTS worker_indice_satje (
@@ -114,7 +115,7 @@ def _guardar(prefijo: str, anio: str, hallados: list, ultimo: int, terminado: bo
                     ON CONFLICT (numero) DO UPDATE
                        SET id_materia=EXCLUDED.id_materia, materia=EXCLUDED.materia,
                            consultado_en=now()""",
-                    (f"{prefijo}-{anio}-{sec:05d}", prefijo, anio, sec,
+                    (numeracion.numero(prefijo, anio, sec), prefijo, anio, sec,
                      cab.get("idMateria"),
                      (cab.get("nombreMateria") or cab.get("materia") or "")[:200]))
             cur.execute("""
@@ -137,7 +138,7 @@ def barrer_par(prefijo: str, anio: str, pausa: float, max_vacias: int,
     fallos = 0
     while not detener.is_set():
         try:
-            cab = consultar_cabecera(f"{prefijo}-{anio}-{n:05d}")
+            cab = consultar_cabecera(numeracion.numero(prefijo, anio, n))
         except Exception as e:
             # Un corte de SATJE de minutos (9-nov-2026 05:11) hacía abandonar
             # TODOS los pares pendientes: se espera y se reintenta el mismo

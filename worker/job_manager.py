@@ -12,6 +12,7 @@ import psycopg2
 import psycopg2.extras
 from datetime import datetime, timezone
 from typing import Optional
+from worker import numeracion
 
 DATABASE_URL     = os.environ.get("DATABASE_URL", "")
 MAX_CONCURRENT   = int(os.environ.get("MAX_CONCURRENT_JOBS", "4"))
@@ -1116,9 +1117,9 @@ def _where_rango(tribunal: Optional[str], año: Optional[str],
     """
     if not tribunal or tribunal == "-" or not año:
         return "", []
-    numero_desde = f"{tribunal}-{año}-{(desde or 1):05d}"
+    numero_desde = numeracion.numero(tribunal, año, desde or 1)
     if hasta:
-        numero_hasta = f"{tribunal}-{año}-{hasta:05d}"
+        numero_hasta = numeracion.numero(tribunal, año, hasta)
         return " AND wc.tribunal_codigo = %s AND wc.año = %s AND wc.numero BETWEEN %s AND %s", \
                [tribunal, año, numero_desde, numero_hasta]
     return " AND wc.tribunal_codigo = %s AND wc.año = %s AND wc.numero >= %s", \
