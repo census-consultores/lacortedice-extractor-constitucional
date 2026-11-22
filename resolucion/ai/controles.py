@@ -83,7 +83,9 @@ def separar_voto(texto: str) -> tuple:
     return texto[:inicio].rstrip(), {"votos": votos, "texto": texto[inicio:]}
 
 
-_RE_FIRMA = re.compile(r"\bFirmado\s+(?:electr[oó]nicamente\s+)?por\b|\bC=EC\b", re.I)
+# Sin re.I: "firmado por las partes contratantes" dentro del voto lo cortaba a la
+# mitad (puerta v7, 17230-2021-21857: el extracto salía de los antecedentes).
+_RE_FIRMA = re.compile(r"\b(?:Firmado|FIRMADO)\s+(?:[Ee]lectr[oó]nicamente\s+|ELECTR[OÓ]NICAMENTE\s+)?(?:por|POR)\b|\bC=EC\b")
 # Inicio de oración: punto final y mayúscula ("fs. 169" o "dispone: “…" no lo son).
 _RE_INICIO_ORACION = re.compile(r"[.!?]\s+(?=[A-ZÁÉÍÓÚÑ¿¡])")
 # Número de página suelto ("3", "Página 3 de 10", "3/10").
@@ -507,11 +509,11 @@ def _revoca_si_invierte(ext, secs, norm, ajustes):
         resolutiva = norm[inicio:inicio + 1500] if inicio >= 0 else ""
     antes, despues = _sentido(previa), _sentido(resolutiva)
     if antes and despues and antes != despues and "nulidad" not in resolutiva[:400]:
-        lineas = decision.rstrip().split("\n")
-        if re.match(r"(confirma|reforma|declara la nulidad)\b", sin_tildes(lineas[-1].strip(" *•"))):
-            lineas[-1] = "Revoca la sentencia."
-        else:  # la última línea es la transcripción: se conserva y se agrega la frase
-            lineas.append("Revoca la sentencia.")
+        # Se quita toda frase canónica contraria, no solo la última línea (puerta
+        # v8, 01613-2020-00108: quedaban "Reforma la sentencia." y "Revoca la sentencia.").
+        canon = re.compile(r"(confirma|reforma|declara la nulidad)\b[^\n]{0,40}\.?$")
+        lineas = [l for l in decision.rstrip().split("\n") if not canon.match(sin_tildes(l.strip(" *•")))]
+        lineas.append("Revoca la sentencia.")
         ext = _reemplazar(ext, secs["decision"], "\n".join(lineas))
         ajustes.append(f"Decisión de apelación: primera instancia {antes} la demanda y la Sala {despues}; se cambió a 'Revoca la sentencia.'")
     return ext

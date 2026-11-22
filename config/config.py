@@ -138,7 +138,7 @@ GPT_MAX_TOKENS = {
     # pasa de largo, se corrige en el prompt, no acá.
     "resumen":         2000,    # Prompt 1: resumen ejecutivo (máx ~500 palabras)
     "extraccion":      16000,   # Prompts 2 (tribunal) y 5 (CNJ): 14-19 secciones largas
-    "jurisprudencia":  6000,    # Prompts 3 y 6: jurisprudencia y criterios (subido de 4000, truncaba)
+    "jurisprudencia":  10000,   # Prompts 3 y 6 (subido de 4000 y 6000: la doctrina citada larga truncaba; puerta civil v7)
     # Subido de 500 — se truncaba seguido en la práctica: "Problemática
     # Principal" es texto libre + hasta 4 categorías/subcategorías repetidas,
     # 500 no alcanzaba (visto en logs reales: "truncado — max_tokens=500").

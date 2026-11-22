@@ -965,3 +965,29 @@ __all__ = [
     "EJEMPLOS_TRIBUNAL_DIR", "EJEMPLOS_CORTE_DIR",
     "DECISIONES_VALIDAS", "TIPOS_ACCION_VALIDOS", "MIN_CHARS_RESUMEN",
 ]
+
+
+def sin_linea_cortada(texto: str) -> str:
+    """Si la salida quedó truncada, quita la última línea a medio escribir para
+    que la ficha no termine a mitad de palabra (puerta civil v7: dos fichas)."""
+    t = (texto or "").rstrip()
+    ultima = t[t.rfind("\n") + 1:] if "\n" in t else t
+    # Una viñeta corta sin punto ("• Falta de motivación") es normal; se corta
+    # solo una línea larga que termina sin cierre.
+    if not t or t[-1] in ".:;)”\"»…" or "\n" not in t or len(ultima) < 80:
+        return t
+    return t[:t.rfind("\n")].rstrip()
+
+
+def sin_repetidas(texto: str, minimo: int = 40) -> str:
+    """Quita las líneas largas repetidas tal cual (bucle de la IA: puerta v8,
+    17230-2022-07361 repetía 8 veces las mismas tres resoluciones)."""
+    vistas, salida = set(), []
+    for linea in (texto or "").split("\n"):
+        clave = re.sub(r"\W+", " ", linea).strip().lower()
+        if len(clave) >= minimo:
+            if clave in vistas:
+                continue
+            vistas.add(clave)
+        salida.append(linea)
+    return "\n".join(salida)

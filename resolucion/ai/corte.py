@@ -26,10 +26,11 @@ from resolucion.ai._cliente import (
     llamar_openai, llamar_qwen, crear_docx_corte,
     GPT_MAX_TOKENS, GPT_MAX_CHARS_INPUT, QWEN_MAX_CHARS_INPUT,
     GPT_PAUSA_SEG, EJEMPLOS_CORTE_DIR, MIN_CHARS_RESUMEN,
-    elegir_salida_reintento,
+    elegir_salida_reintento, sin_linea_cortada, sin_repetidas,
 )
 from config.pdf_utils import cargar_ejemplos_few_shot
-from resolucion.ai.tribunal import clasificar_y_tipificar, _codigos_controversia
+from resolucion.ai.tribunal import (clasificar_y_tipificar, _codigos_controversia, secciones_faltantes,
+                                    recortar_seccion_incompleta, instruccion_continuacion)
 from resolucion.ai import controles, regla_cero, verificador_argumentos
 from worker import logger as log
 
@@ -251,7 +252,20 @@ def analizar(
     extraccion, fr2 = _llamar(_p5_extrac, GPT_MAX_TOKENS["extraccion"])
     extraccion, fr2 = _reintentar_si_trunca(_p5_extrac, GPT_MAX_TOKENS["extraccion"],
                                             extraccion, fr2, "[2/3] Extracción")
-    if fr2 == "length": truncados.append(f"Extracción {ETQ}")
+    # Igual que en tribunal: si aun así faltan secciones finales, se pide la
+    # continuación una vez (puerta civil v7, 18334-2023-01146: perdió de la 12 a la 14).
+    if fr2 == "length" and extraccion and not extraccion.startswith("[Error"):
+        faltan = secciones_faltantes(extraccion, 14)
+        if faltan:
+            log.warn(f"IA-{ETQ} Extracción cortada: faltan secciones {faltan[0]}–14 — pidiendo continuación",
+                     job_id=job_id, causa=numero)
+            cont, fr_c = _llamar(_p5_extrac + instruccion_continuacion(faltan[0], 14), GPT_MAX_TOKENS["extraccion"])
+            if cont and not cont.startswith("[Error"):
+                extraccion = recortar_seccion_incompleta(extraccion, faltan[0]) + "\n" + cont.strip()
+                fr2 = fr_c
+    if fr2 == "length":
+        truncados.append(f"Extracción {ETQ}")
+        extraccion = sin_linea_cortada(extraccion)
     if extraccion.startswith("[Error"):
         log.warn(
             f"Prompt 5 falló tras agotar reintentos: {extraccion[:80]} — "
@@ -287,8 +301,10 @@ def analizar(
     jurisprudencia, fr3 = _llamar(_p6_jurisp, GPT_MAX_TOKENS["jurisprudencia"])
     jurisprudencia, fr3 = _reintentar_si_trunca(_p6_jurisp, GPT_MAX_TOKENS["jurisprudencia"],
                                                 jurisprudencia, fr3, "[3/3] Jurisprudencia")
-    if fr3 == "length": truncados.append(f"Jurisprudencia {ETQ}")
-    resultado["jurisprudencia"] = jurisprudencia
+    if fr3 == "length":
+        truncados.append(f"Jurisprudencia {ETQ}")
+        jurisprudencia = sin_linea_cortada(jurisprudencia)
+    resultado["jurisprudencia"] = sin_repetidas(jurisprudencia)
     time.sleep(GPT_PAUSA_SEG)
 
     # ── Prompts 4 y 7: categorías y puntos controvertidos del RECURSO ────────

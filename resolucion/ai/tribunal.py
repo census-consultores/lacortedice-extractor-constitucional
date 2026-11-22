@@ -24,6 +24,7 @@ import json
 import httpx
 
 from resolucion.ai._cliente import (
+    sin_linea_cortada, sin_repetidas,
     cargar_api_key_openai, cargar_api_key_openrouter, es_modelo_qwen,
     cargar_prompt, extraer_texto_pdf,
     llamar_openai, llamar_qwen, crear_docx_tribunal,
@@ -669,6 +670,7 @@ def analizar(
                 fr2 = fr_c
     if fr2 == "length":
         truncados.append("Extracción 19 secciones")
+        extraccion = sin_linea_cortada(extraccion)
 
     if extraccion.startswith("[Error"):
         log.warn(
@@ -743,8 +745,10 @@ def analizar(
     # ── Prompt 3: Jurisprudencia ──────────────────────────────────────────────
     log.info("IA [3/4] Jurisprudencia y criterios", job_id=job_id, causa=numero)
     jurisprudencia, fr3 = _llamar(_p3_jurisp, GPT_MAX_TOKENS["jurisprudencia"])
-    if fr3 == "length": truncados.append("Jurisprudencia")
-    resultado["jurisprudencia"] = jurisprudencia
+    if fr3 == "length":
+        truncados.append("Jurisprudencia")
+        jurisprudencia = sin_linea_cortada(jurisprudencia)
+    resultado["jurisprudencia"] = sin_repetidas(jurisprudencia)
     time.sleep(GPT_PAUSA_SEG)
 
     # ── Prompts 4 y 7: Clasificación y tipos de defecto ──────────────────────
