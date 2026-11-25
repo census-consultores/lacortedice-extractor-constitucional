@@ -120,7 +120,8 @@ def test_abogados_satje_envia_por_tandas(monkeypatch):
 
     monkeypatch.setattr(cf.ThreadPoolExecutor, "map", map_)
     monkeypatch.setattr(s, "procesar", procesar)
-    monkeypatch.setattr(s, "pendientes", lambda *a: [str(i) for i in range(230)])
+    monkeypatch.setattr(s, "pendientes", lambda *a: iter([str(i) for i in range(230)]))
+    monkeypatch.setattr(s, "contar_pendientes", lambda *a: 230)
     monkeypatch.setitem(sys.modules, "api", type(sys)("api"))
     sys.modules["api"].activar_proxy_desde_entorno = lambda: (True, "proxy")
 
@@ -134,6 +135,15 @@ def test_abogados_satje_envia_por_tandas(monkeypatch):
 
     from worker import job_manager as jm
     monkeypatch.setattr(jm, "_conn", lambda: _Conn())
+
+    class _Candado:                     # pg_try_advisory_lock → libre
+        autocommit = False
+        def cursor(self):
+            c = _Cur()
+            c.fetchone = lambda: (True,)
+            return c
+    import psycopg2
+    monkeypatch.setattr(psycopg2, "connect", lambda *a, **k: _Candado())
     monkeypatch.setattr(sys, "argv", ["x", "--hilos", "3"])
     s.main()
     assert enviados[0] == 230 and maximo[0] <= s.TANDA
@@ -167,3 +177,68 @@ def test_solo_se_excluye_lo_publico():
     assert re.search(INSTITUCION_REGEX, clave_nombre("FISCALIA GENERAL DEL ESTADO"))
     assert re.search(INSTITUCION_REGEX, clave_nombre("DEFENSORÍA PÚBLICA AZUAY PENAL"))
     assert not re.search(INSTITUCION_REGEX, clave_nombre("COOPERATIVA JARDIN AZUAYO"))
+
+
+def test_arranque_automatico_de_abogados(monkeypatch, tmp_path):
+    import subprocess
+    import main
+    lanzados, avisos = [], []
+
+    class Log:
+        def sistema(self, nivel, msg): avisos.append((nivel, msg))
+
+    monkeypatch.setattr(subprocess, "Popen", lambda cmd, **kw: lanzados.append(cmd))
+    monkeypatch.setattr("builtins.open", lambda *a, **k: (tmp_path / "log").open("ab"))
+    for valor in ("", "off"):
+        monkeypatch.setenv("ABOGADOS_AUTOMATICO", valor)
+        main._lanzar_abogados(Log())
+    assert lanzados == []
+    monkeypatch.setenv("ABOGADOS_AUTOMATICO", "seis")
+    main._lanzar_abogados(Log())
+    assert lanzados == [] and avisos[-1][0] == "ERROR"
+    monkeypatch.setenv("ABOGADOS_AUTOMATICO", "6")
+    main._lanzar_abogados(Log())
+    assert lanzados[-1][-3:] == ["scripts/abogados_satje.py", "--hilos", "6"]
+
+
+def test_con_freno_activo_espera_y_no_anota_error(monkeypatch):
+    import sys
+    import time as _t
+    import scripts.abogados_satje as s
+    api = type(sys)("api")
+    api._freno_hasta = 0
+    monkeypatch.setitem(sys.modules, "api", api)
+    llamadas, dormido = [], []
+
+    def consultar(n):
+        llamadas.append(n)
+        if len(llamadas) == 1:                 # la 1.ª consulta activa el freno y falla
+            api._freno_hasta = _t.monotonic() + 30
+            raise RuntimeError("freno de emergencia activo")
+        return 2, ["ok"]
+
+    def dormir(seg):
+        dormido.append(seg)
+        api._freno_hasta = 0                   # el freno se suelta mientras espera
+
+    monkeypatch.setattr(s, "consultar", consultar)
+    monkeypatch.setattr(s.time, "sleep", dormir)
+    assert s.consultar_esperando_freno("x") == (2, ["ok"])
+    assert len(llamadas) == 2 and dormido and dormido[0] <= 60
+
+
+def test_consultar_une_incidentes_sin_juntar_actuaciones(monkeypatch):
+    import sys
+    import scripts.abogados_satje as s
+    api = type(sys)("api")
+    api.buscar_causa = lambda n: {"idJuicio": n}
+    api.id_juicio_de = lambda causa, n: n
+    api.obtener_incidentes = lambda i: ["primera", "apelacion"]
+    texto = {"primera": "a: X correo pcano@gmail.com del Dr./Ab. CANO RUIZ PEDRO;",
+             "apelacion": "a: X correo legal@estudio.ec del Dr./Ab. CANO RUIZ PEDRO;"}
+    api.obtener_actuaciones = lambda i, inc: [{"actividad": texto[inc]}]
+    api.limpiar_html = lambda t: t
+    monkeypatch.setitem(sys.modules, "api", api)
+    n, menciones = s.consultar("09332-2024-00001")
+    assert n == 2 and len(menciones) == 1
+    assert menciones[0]["emails"] == ["legal@estudio.ec", "pcano@gmail.com"]

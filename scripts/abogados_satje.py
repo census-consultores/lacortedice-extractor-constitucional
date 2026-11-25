@@ -15,6 +15,9 @@ freno de emergencia de todo el worker.
   python scripts/abogados_satje.py --limite 500                  # prueba
   nohup python -u scripts/abogados_satje.py --hilos 4 > /tmp/abogados_satje.log 2>&1 &
 
+En Render lo lanza solo el worker al arrancar si tiene ABOGADOS_AUTOMATICO
+(número de hilos); el log queda en /tmp/abogados_satje.log.
+
 Después: python scripts/directorio_abogados.py --fuente satje
 """
 import argparse
@@ -23,6 +26,7 @@ import os
 import sys
 import time
 from concurrent.futures import ThreadPoolExecutor
+from itertools import islice
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -40,7 +44,12 @@ CREATE TABLE IF NOT EXISTS abogado_satje (
     error           TEXT,
     consultado_en   TIMESTAMPTZ DEFAULT NOW()
 );
+ALTER TABLE abogado_satje ADD COLUMN IF NOT EXISTS intentos INTEGER NOT NULL DEFAULT 0;
 """
+# Una causa que tumba el worker (p. ej. miles de actuaciones) se reintenta como
+# máximo esto; después se deja de pedir. Sin tope, el arranque automático volvía
+# a chocar con ella cada 6 minutos (civil, 25-nov).
+MAX_INTENTOS = 3
 
 
 def menciones_de_actuaciones(actuaciones: list) -> tuple:
@@ -68,17 +77,55 @@ def consultar(numero: str) -> tuple:
     if not causa:
         return 0, []
     id_juicio = api.id_juicio_de(causa, numero)
-    actuaciones = []
+    # Incidente por incidente: juntar todas las actuaciones de una causa grande
+    # en una sola lista multiplicaba la memoria.
+    n, por_clave = 0, {}
     for inc in api.obtener_incidentes(id_juicio):
-        actuaciones += api.obtener_actuaciones(id_juicio, inc)
-    return menciones_de_actuaciones(actuaciones)
+        ni, menciones = menciones_de_actuaciones(api.obtener_actuaciones(id_juicio, inc))
+        n += ni
+        for m in menciones:
+            y = por_clave.setdefault(m["clave"], m)
+            if y is not m:
+                y["emails"] = sorted(set(y["emails"]) | set(m["emails"]))
+                y["matricula"] = y["matricula"] or m["matricula"]
+                y["telefono"] = y["telefono"] or m["telefono"]
+    return n, list(por_clave.values())
+
+
+def _freno_activo() -> float:
+    """Segundos que le quedan al freno de emergencia de api.py (0 si no hay)."""
+    import api
+    return max(0.0, getattr(api, "_freno_hasta", 0) - time.monotonic())
+
+
+def consultar_esperando_freno(numero: str) -> tuple:
+    """Con el freno de emergencia activo (SATJE fallando) no se consulta: se espera
+    a que se suelte. Antes cada causa de esos minutos quedaba anotada con error y
+    no se volvía a pedir hasta la siguiente corrida (laboral, 23-nov)."""
+    while True:
+        espera = _freno_activo()
+        if espera:
+            time.sleep(min(espera, 60))
+            continue
+        try:
+            return consultar(numero)
+        except Exception:
+            if _freno_activo():       # falló porque se activó el freno: esperar y repetir
+                continue
+            raise
 
 
 def procesar(numero: str) -> dict:
     from worker import job_manager as jm
     t0 = time.monotonic()
+    with jm._conn() as conn, conn.cursor() as cur:   # queda anotada antes de pedirla
+        cur.execute("""
+            INSERT INTO abogado_satje (numero, error, intentos) VALUES (%s, 'en proceso', 1)
+            ON CONFLICT (numero) DO UPDATE SET error = 'en proceso',
+                intentos = abogado_satje.intentos + 1, consultado_en = NOW()
+        """, (numero,))
     try:
-        n, menciones, error = *consultar(numero), None
+        n, menciones, error = *consultar_esperando_freno(numero), None
     except Exception as e:      # SATJE caído o respuesta rara: se guarda y se reintenta luego
         n, menciones, error = 0, [], f"{type(e).__name__}: {e}"[:500]
     with jm._conn() as conn, conn.cursor() as cur:
@@ -92,23 +139,53 @@ def procesar(numero: str) -> dict:
     return {"n": n, "menciones": menciones, "error": error, "seg": time.monotonic() - t0}
 
 
-def pendientes(limite=None, tribunal=None) -> list:
-    """Causas sin consultar o con error, de la más reciente a la más antigua."""
+PAGINA = 5000   # causas pendientes leídas de la base a la vez
+
+
+def contar_pendientes(tribunal=None) -> int:
     from worker import job_manager as jm
-    sql = """SELECT c.numero FROM worker_causas c
+    sql = """SELECT count(*) FROM worker_causas c
              LEFT JOIN abogado_satje a ON a.numero = c.numero
-             WHERE (a.numero IS NULL OR a.error IS NOT NULL)"""
-    params = []
+             WHERE (a.numero IS NULL OR (a.error IS NOT NULL AND a.intentos < %s))"""
+    params = [MAX_INTENTOS]
     if tribunal:
         sql += " AND c.tribunal_codigo = %s"
         params.append(tribunal)
-    sql += " ORDER BY c.año DESC, c.numero"
-    if limite:
-        sql += " LIMIT %s"
-        params.append(limite)
     with jm._conn() as conn, conn.cursor() as cur:
         cur.execute(sql, params)
-        return [r[0] for r in cur.fetchall()]
+        return cur.fetchone()[0]
+
+
+def pendientes(limite=None, tribunal=None):
+    """Causas sin consultar o con error, de la más reciente a la más antigua,
+    leídas por páginas. Antes se cargaba la lista entera: en civil son 1,1
+    millones de números, unos 200 MB del worker de 512 MB (OOM del 23-nov)."""
+    from worker import job_manager as jm
+    ultimo, dados = None, 0
+    while True:
+        sql = """SELECT c.numero, c.año FROM worker_causas c
+                 LEFT JOIN abogado_satje a ON a.numero = c.numero
+                 WHERE (a.numero IS NULL OR (a.error IS NOT NULL AND a.intentos < %s))"""
+        params = [MAX_INTENTOS]
+        if tribunal:
+            sql += " AND c.tribunal_codigo = %s"
+            params.append(tribunal)
+        if ultimo:      # continuar después de la última causa de la página anterior
+            sql += " AND (c.año < %s OR (c.año = %s AND c.numero > %s))"
+            params += [ultimo[1], ultimo[1], ultimo[0]]
+        sql += " ORDER BY c.año DESC, c.numero LIMIT %s"
+        params.append(PAGINA)
+        with jm._conn() as conn, conn.cursor() as cur:
+            cur.execute(sql, params)
+            filas = cur.fetchall()
+        if not filas:
+            return
+        for numero, _ in filas:
+            yield numero
+            dados += 1
+            if limite and dados >= limite:
+                return
+        ultimo = filas[-1]
 
 
 def main():
@@ -126,10 +203,23 @@ def main():
         # Sin proxy cada consulta falla: no tiene sentido recorrer el corpus
         # anotando errores (administrativo, 13-nov: 6.690 en 10 minutos).
         sys.exit("Detenido: configure BDATA_DATACENTER_PROXY_URL en el worker y relance.")
+    # Una sola descarga por base: el arranque automático del worker y una
+    # lanzada a mano desde el shell no deben consultar las mismas causas.
+    import psycopg2
+    candado = psycopg2.connect(jm.DATABASE_URL)   # se suelta al terminar el proceso
+    candado.autocommit = True
+    with candado.cursor() as cur:
+        cur.execute("SELECT pg_try_advisory_lock(hashtext('abogados_satje'))")
+        if not cur.fetchone()[0]:
+            print("Ya hay una descarga de abogados corriendo en este worker: no se lanza otra.", flush=True)
+            return
     with jm._conn() as conn, conn.cursor() as cur:
         cur.execute(CREATE_SQL)
+    total = contar_pendientes(args.tribunal)
+    if args.limite:
+        total = min(total, args.limite)
     numeros = pendientes(args.limite, args.tribunal)
-    print(f"{len(numeros)} causas por consultar con {args.hilos} hilos", flush=True)
+    print(f"{total} causas por consultar con {args.hilos} hilos", flush=True)
 
     t0 = time.monotonic()
     tot = {"causas": 0, "con_correo": 0, "abogados": 0, "con_email": 0, "errores": 0}
@@ -138,8 +228,9 @@ def main():
     # pasó los 512 MB del worker. Se envían por tandas pequeñas.
     def resultados():
         with ThreadPoolExecutor(max_workers=max(1, min(args.hilos, 8))) as ex:
-            for k in range(0, len(numeros), TANDA):
-                yield from ex.map(procesar, numeros[k:k + TANDA])
+            it = iter(numeros)
+            while tanda := list(islice(it, TANDA)):
+                yield from ex.map(procesar, tanda)
 
     def consolidar():
         from scripts.directorio_abogados import consolidar as _c
@@ -159,9 +250,9 @@ def main():
         tot["con_correo"] += bool(r["n"])
         tot["abogados"] += len(r["menciones"])
         tot["con_email"] += sum(1 for m in r["menciones"] if m["emails"])
-        if i % 100 == 0 or i == len(numeros):
+        if i % 100 == 0 or i == total:
             seg = (time.monotonic() - t0) / i
-            print(f"  {i}/{len(numeros)} · {seg:.1f} s/causa · {tot}", flush=True)
+            print(f"  {i}/{total} · {seg:.1f} s/causa · {tot}", flush=True)
     print(f"Listo: {tot}", flush=True)
     consolidar()
 

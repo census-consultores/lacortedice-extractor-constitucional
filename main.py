@@ -43,6 +43,29 @@ BUSCADOR_API_KEY = os.environ.get("BUSCADOR_API_KEY", "")
 
 # ── Startup / shutdown ────────────────────────────────────────────────────────
 
+def _lanzar_abogados(wlog):
+    """Retoma la descarga de abogados de SATJE en cada arranque: cada despliegue
+    reiniciaba el worker y la cortaba (13 al 19-nov). ABOGADOS_AUTOMATICO = número
+    de hilos; vacía u 'off' = no se lanza. Corre como proceso aparte para no
+    frenar al worker; si ya hay una corriendo, el script no lanza otra."""
+    import subprocess
+    import sys
+    hilos = os.environ.get("ABOGADOS_AUTOMATICO", "").strip().lower()
+    if not hilos or hilos == "off":
+        return
+    if not hilos.isdigit() or not 1 <= int(hilos) <= 8:
+        wlog.sistema("ERROR", f"ABOGADOS_AUTOMATICO inválido ({hilos!r}): use un número de 1 a 8")
+        return
+    try:
+        log = open("/tmp/abogados_satje.log", "ab")
+        subprocess.Popen([sys.executable, "-u", "scripts/abogados_satje.py", "--hilos", hilos],
+                         cwd=str(Path(__file__).parent), stdout=log, stderr=subprocess.STDOUT,
+                         stdin=subprocess.DEVNULL, start_new_session=True)
+        wlog.sistema("INFO", f"Descarga de abogados lanzada ({hilos} hilos); log en /tmp/abogados_satje.log")
+    except Exception as e:      # nunca debe impedir que el worker arranque
+        wlog.sistema("ERROR", f"No se pudo lanzar la descarga de abogados: {e}")
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     from worker import logger as wlog
@@ -74,6 +97,7 @@ async def lifespan(app: FastAPI):
     jm.recuperar_jobs_interrumpidos()
     jm.iniciar_cola_automatica()
     sched.init_schedules()
+    _lanzar_abogados(wlog)
     wlog.sistema("INFO", "Worker listo")
     yield
     sched.apagar_scheduler()
