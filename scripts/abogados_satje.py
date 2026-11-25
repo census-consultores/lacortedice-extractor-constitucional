@@ -44,7 +44,12 @@ CREATE TABLE IF NOT EXISTS abogado_satje (
     error           TEXT,
     consultado_en   TIMESTAMPTZ DEFAULT NOW()
 );
+ALTER TABLE abogado_satje ADD COLUMN IF NOT EXISTS intentos INTEGER NOT NULL DEFAULT 0;
 """
+# Una causa que tumba el worker (p. ej. miles de actuaciones) se reintenta como
+# máximo esto; después se deja de pedir. Sin tope, el arranque automático volvía
+# a chocar con ella cada 6 minutos (civil, 25-nov).
+MAX_INTENTOS = 3
 
 
 def menciones_de_actuaciones(actuaciones: list) -> tuple:
@@ -72,10 +77,19 @@ def consultar(numero: str) -> tuple:
     if not causa:
         return 0, []
     id_juicio = api.id_juicio_de(causa, numero)
-    actuaciones = []
+    # Incidente por incidente: juntar todas las actuaciones de una causa grande
+    # en una sola lista multiplicaba la memoria.
+    n, por_clave = 0, {}
     for inc in api.obtener_incidentes(id_juicio):
-        actuaciones += api.obtener_actuaciones(id_juicio, inc)
-    return menciones_de_actuaciones(actuaciones)
+        ni, menciones = menciones_de_actuaciones(api.obtener_actuaciones(id_juicio, inc))
+        n += ni
+        for m in menciones:
+            y = por_clave.setdefault(m["clave"], m)
+            if y is not m:
+                y["emails"] = sorted(set(y["emails"]) | set(m["emails"]))
+                y["matricula"] = y["matricula"] or m["matricula"]
+                y["telefono"] = y["telefono"] or m["telefono"]
+    return n, list(por_clave.values())
 
 
 def _freno_activo() -> float:
@@ -104,6 +118,12 @@ def consultar_esperando_freno(numero: str) -> tuple:
 def procesar(numero: str) -> dict:
     from worker import job_manager as jm
     t0 = time.monotonic()
+    with jm._conn() as conn, conn.cursor() as cur:   # queda anotada antes de pedirla
+        cur.execute("""
+            INSERT INTO abogado_satje (numero, error, intentos) VALUES (%s, 'en proceso', 1)
+            ON CONFLICT (numero) DO UPDATE SET error = 'en proceso',
+                intentos = abogado_satje.intentos + 1, consultado_en = NOW()
+        """, (numero,))
     try:
         n, menciones, error = *consultar_esperando_freno(numero), None
     except Exception as e:      # SATJE caído o respuesta rara: se guarda y se reintenta luego
@@ -126,8 +146,8 @@ def contar_pendientes(tribunal=None) -> int:
     from worker import job_manager as jm
     sql = """SELECT count(*) FROM worker_causas c
              LEFT JOIN abogado_satje a ON a.numero = c.numero
-             WHERE (a.numero IS NULL OR a.error IS NOT NULL)"""
-    params = []
+             WHERE (a.numero IS NULL OR (a.error IS NOT NULL AND a.intentos < %s))"""
+    params = [MAX_INTENTOS]
     if tribunal:
         sql += " AND c.tribunal_codigo = %s"
         params.append(tribunal)
@@ -145,8 +165,8 @@ def pendientes(limite=None, tribunal=None):
     while True:
         sql = """SELECT c.numero, c.año FROM worker_causas c
                  LEFT JOIN abogado_satje a ON a.numero = c.numero
-                 WHERE (a.numero IS NULL OR a.error IS NOT NULL)"""
-        params = []
+                 WHERE (a.numero IS NULL OR (a.error IS NOT NULL AND a.intentos < %s))"""
+        params = [MAX_INTENTOS]
         if tribunal:
             sql += " AND c.tribunal_codigo = %s"
             params.append(tribunal)

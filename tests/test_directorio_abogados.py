@@ -225,3 +225,20 @@ def test_con_freno_activo_espera_y_no_anota_error(monkeypatch):
     monkeypatch.setattr(s.time, "sleep", dormir)
     assert s.consultar_esperando_freno("x") == (2, ["ok"])
     assert len(llamadas) == 2 and dormido and dormido[0] <= 60
+
+
+def test_consultar_une_incidentes_sin_juntar_actuaciones(monkeypatch):
+    import sys
+    import scripts.abogados_satje as s
+    api = type(sys)("api")
+    api.buscar_causa = lambda n: {"idJuicio": n}
+    api.id_juicio_de = lambda causa, n: n
+    api.obtener_incidentes = lambda i: ["primera", "apelacion"]
+    texto = {"primera": "a: X correo pcano@gmail.com del Dr./Ab. CANO RUIZ PEDRO;",
+             "apelacion": "a: X correo legal@estudio.ec del Dr./Ab. CANO RUIZ PEDRO;"}
+    api.obtener_actuaciones = lambda i, inc: [{"actividad": texto[inc]}]
+    api.limpiar_html = lambda t: t
+    monkeypatch.setitem(sys.modules, "api", api)
+    n, menciones = s.consultar("09332-2024-00001")
+    assert n == 2 and len(menciones) == 1
+    assert menciones[0]["emails"] == ["legal@estudio.ec", "pcano@gmail.com"]
