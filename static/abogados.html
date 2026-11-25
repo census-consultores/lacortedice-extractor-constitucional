@@ -94,7 +94,7 @@
 const LIM = 50; let offset = 0;
 const $ = id => document.getElementById(id);
 const PROV = {"01":"Azuay","02":"Bolívar","03":"Cañar","04":"Carchi","05":"Cotopaxi","06":"Chimborazo","07":"El Oro","08":"Esmeraldas","09":"Guayas","10":"Imbabura","11":"Loja","12":"Los Ríos","13":"Manabí","14":"Morona Santiago","15":"Napo","16":"Pastaza","17":"Pichincha","18":"Tungurahua","19":"Zamora Chinchipe","20":"Galápagos","21":"Sucumbíos","22":"Orellana","23":"Santo Domingo","24":"Santa Elena"};
-const MAT = {civil:"Civil", laboral:"Laboral", administrativo:"Administrativo", penal:"Penal", tributario:"Tributario"};
+const MAT = {civil:"Civil", laboral:"Laboral", administrativo:"Administrativo", penal:"Penal", tributario:"Tributario", constitucional:"Garantías constitucionales"};
 for (const [c, n] of Object.entries(PROV)) $('provincia').insertAdjacentHTML('beforeend', `<option value="${c}">${n}</option>`);
 const lee = () => { try { return localStorage.getItem('worker_key') || ''; } catch (e) { return ''; } };
 function mostrar(con) { $('acceso').style.display = con ? 'none' : ''; $('app').style.display = con ? 'block' : 'none'; $('cambiar').hidden = !con; if (con) cargar(); else $('key').focus(); }
